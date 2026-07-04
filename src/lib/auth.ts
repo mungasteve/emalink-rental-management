@@ -2,7 +2,8 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
-import type { Role } from "@prisma/client";
+
+type Role = "VISITOR" | "TENANT" | "OWNER" | "MANAGER" | "ADMIN";
 
 declare module "next-auth" {
   interface User {
