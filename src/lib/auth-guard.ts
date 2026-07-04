@@ -1,6 +1,7 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import type { Role } from "@prisma/client";
+
+type Role = "VISITOR" | "TENANT" | "OWNER" | "MANAGER" | "ADMIN";
 
 /**
  * Get the current authenticated session or redirect to login.
