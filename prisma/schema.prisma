@@ -1,0 +1,259 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  OWNER
+  TENANT
+  MANAGER
+  VISITOR
+}
+
+enum PropertyType {
+  RESIDENTIAL
+  COMMERCIAL
+  INDUSTRIAL
+}
+
+enum UnitStatus {
+  AVAILABLE
+  OCCUPIED
+  MAINTENANCE
+}
+
+enum LeaseStatus {
+  ACTIVE
+  EXPIRED
+  TERMINATED
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  OVERDUE
+}
+
+enum PaymentMethod {
+  MPESA
+  AIRTEL_MONEY
+  STRIPE
+  PAYPAL
+  BANK_TRANSFER
+}
+
+enum MaintenanceStatus {
+  OPEN
+  IN_PROGRESS
+  COMPLETED
+  CLOSED
+}
+
+enum MaintenancePriority {
+  LOW
+  MEDIUM
+  HIGH
+  EMERGENCY
+}
+
+model User {
+  id            String   @id @default(cuid())
+  name          String
+  email         String   @unique
+  phone         String?
+  password      String
+  role          Role     @default(VISITOR)
+  avatar        String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  tenant        Tenant?
+  owner         Owner?
+  notifications Notification[]
+  documents     Document[]
+}
+
+model Property {
+  id          String       @id @default(cuid())
+  title       String
+  description String?
+  type        PropertyType
+  location    String
+  address     String
+  latitude    Float?
+  longitude   Float?
+  amenities   String[]
+  images      String[]
+  featured    Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  ownerId     String
+  owner       Owner        @relation(fields: [ownerId], references: [id])
+  units       Unit[]
+  maintenance Maintenance[]
+}
+
+model Unit {
+  id         String     @id @default(cuid())
+  name       String
+  bedrooms   Int        @default(0)
+  bathrooms  Int        @default(1)
+  rent       Float
+  deposit    Float
+  status     UnitStatus @default(AVAILABLE)
+  floor      Int?
+  size       Float?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  propertyId String
+  property   Property   @relation(fields: [propertyId], references: [id])
+  leases     Lease[]
+}
+
+model Tenant {
+  id            String   @id @default(cuid())
+  emergencyName  String?
+  emergencyPhone String?
+  moveInDate    DateTime?
+  moveOutDate   DateTime?
+  createdAt     DateTime @default(now())
+
+  userId        String   @unique
+  user          User     @relation(fields: [userId], references: [id])
+  leases        Lease[]
+  payments      Payment[]
+  maintenance   Maintenance[]
+}
+
+model Owner {
+  id         String     @id @default(cuid())
+  company    String?
+  createdAt  DateTime   @default(now())
+
+  userId     String     @unique
+  user       User       @relation(fields: [userId], references: [id])
+  properties Property[]
+  payouts    Payout[]
+}
+
+model Lease {
+  id        String      @id @default(cuid())
+  startDate DateTime
+  endDate   DateTime
+  rent      Float
+  deposit   Float
+  status    LeaseStatus @default(ACTIVE)
+  document  String?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  tenantId  String
+  tenant    Tenant      @relation(fields: [tenantId], references: [id])
+  unitId    String
+  unit      Unit        @relation(fields: [unitId], references: [id])
+  payments  Payment[]
+}
+
+model Payment {
+  id            String        @id @default(cuid())
+  amount        Float
+  method        PaymentMethod
+  status        PaymentStatus @default(PENDING)
+  reference     String?
+  transactionId String?
+  paidAt        DateTime?
+  dueDate       DateTime
+  lateFee       Float         @default(0)
+  createdAt     DateTime      @default(now())
+
+  tenantId      String
+  tenant        Tenant        @relation(fields: [tenantId], references: [id])
+  leaseId       String
+  lease         Lease         @relation(fields: [leaseId], references: [id])
+}
+
+model Payout {
+  id        String   @id @default(cuid())
+  amount    Float
+  period    String
+  status    PaymentStatus @default(PENDING)
+  paidAt    DateTime?
+  createdAt DateTime @default(now())
+
+  ownerId   String
+  owner     Owner    @relation(fields: [ownerId], references: [id])
+}
+
+model Maintenance {
+  id          String              @id @default(cuid())
+  title       String
+  description String
+  images      String[]
+  priority    MaintenancePriority @default(MEDIUM)
+  status      MaintenanceStatus   @default(OPEN)
+  cost        Float?
+  notes       String?
+  completedAt DateTime?
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  propertyId  String
+  property    Property            @relation(fields: [propertyId], references: [id])
+  tenantId    String
+  tenant      Tenant              @relation(fields: [tenantId], references: [id])
+}
+
+model Document {
+  id        String   @id @default(cuid())
+  name      String
+  fileUrl   String
+  type      String
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  title     String
+  message   String
+  channel   String   @default("email")
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model BlogPost {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  excerpt   String
+  content   String
+  category  String
+  image     String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  source    String?
+  status    String   @default("new")
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
