@@ -52,14 +52,14 @@ export async function GET() {
   ]);
 
   // Calculate revenue from active leases
-  const totalRevenue = properties.reduce((sum: number, p) =>
-    sum + p.units.reduce((uSum: number, u) =>
-      uSum + u.leases.reduce((lSum: number, l) =>
-        lSum + l.payments.reduce((pSum: number, pay) => pSum + pay.amount, 0), 0), 0), 0);
+  const totalRevenue = properties.reduce((sum: number, p: any) =>
+    sum + p.units.reduce((uSum: number, u: any) =>
+      uSum + u.leases.reduce((lSum: number, l: any) =>
+        lSum + l.payments.reduce((pSum: number, pay: any) => pSum + pay.amount, 0), 0), 0), 0);
 
-  const totalUnits = properties.reduce((sum: number, p) => sum + p.units.length, 0);
-  const occupiedUnits = properties.reduce((sum: number, p) =>
-    sum + p.units.filter((u) => u.status === "OCCUPIED").length, 0);
+  const totalUnits = properties.reduce((sum: number, p: any) => sum + p.units.length, 0);
+  const occupiedUnits = properties.reduce((sum: number, p: any) =>
+    sum + p.units.filter((u: any) => u.status === "OCCUPIED").length, 0);
 
   return NextResponse.json({
     payouts,
