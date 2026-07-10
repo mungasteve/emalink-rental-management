@@ -11,7 +11,6 @@ const navLinks = [
   { href: "/about", label: "About Us" },
   { href: "/properties", label: "Properties" },
   { href: "/services", label: "Services" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -74,14 +73,6 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a
-            href="tel:+254700000000"
-            className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-navy-800 transition-colors"
-            aria-label="Call us at +254 700 000 000"
-          >
-            <Phone className="h-4 w-4" />
-            +254 700 000 000
-          </a>
 
           {session ? (
             <div className="flex items-center gap-2">

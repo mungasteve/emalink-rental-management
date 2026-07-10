@@ -71,7 +71,7 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="space-y-4">
               {[
-                { icon: Phone, label: "Phone", value: "+254 700 000 000", href: "tel:+254700000000" },
+                { icon: Phone, label: "Phone", value: "Coming Soon", href: undefined },
                 { icon: Mail, label: "Email", value: "info@emalink.co.ke", href: "mailto:info@emalink.co.ke" },
                 { icon: MapPin, label: "Office", value: "Nairobi, Kenya", href: undefined },
                 { icon: Clock, label: "Hours", value: "Mon–Fri, 8AM–6PM", href: undefined },

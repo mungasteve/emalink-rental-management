@@ -1,29 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, Award, Building2, Users } from "lucide-react";
+import { ShieldCheck, Zap, Building2, Users } from "lucide-react";
 import { LinkButton } from "@/components/ui/link-button";
 
 const trustSignals = [
   {
     icon: ShieldCheck,
-    title: "Licensed & Regulated",
-    desc: "Fully compliant with Kenya's Estate Agents Act and registered with the Estate Agents Registration Board.",
+    title: "Secure Platform",
+    desc: "Bank-grade encryption and data protection for all transactions and tenant information.",
   },
   {
-    icon: Award,
-    title: "Professional Standards",
-    desc: "Our team holds certifications from the Institution of Surveyors of Kenya (ISK) and EARB.",
+    icon: Zap,
+    title: "Built for Kenya",
+    desc: "Designed specifically for Kenyan property owners with M-Pesa integration and local compliance.",
   },
   {
     icon: Building2,
-    title: "Portfolio Ready",
+    title: "Scalable",
     desc: "Infrastructure built to manage 1 to 1,000+ units — from single landlords to large property firms.",
   },
   {
     icon: Users,
-    title: "Early Access Open",
-    desc: "Join property owners and tenants already onboarding ahead of our official launch.",
+    title: "Early Access",
+    desc: "Join property owners already testing Emalink ahead of our official launch.",
   },
 ];
 
@@ -38,14 +38,13 @@ export function Testimonials() {
           className="text-center mb-10"
         >
           <span className="inline-block bg-gold-500/10 text-gold-400 text-sm font-semibold uppercase tracking-[0.15em] px-3 py-1 rounded-full mb-3">
-            Launching Soon
+            Coming Soon
           </span>
           <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Built on Trust, Before Day One
+            Why Emalink
           </h2>
           <p className="text-white/60 text-sm max-w-xl mx-auto">
-            We&apos;re not asking you to take our word for it — here&apos;s what
-            we&apos;re backed by before we even open the doors.
+            We're building the property management platform Kenya needs.
           </p>
         </motion.div>
 
@@ -53,12 +52,11 @@ export function Testimonials() {
           {trustSignals.map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 30, rotateX: 15, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
-              whileHover={{ rotateX: -4, rotateY: 3, scale: 1.03, y: -4 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: i * 0.09, ease: [0.22, 1, 0.36, 1] }}
-              style={{ transformOrigin: "bottom center", transformStyle: "preserve-3d" }}
+              transition={{ duration: 0.55, delay: i * 0.09 }}
               className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-5 cursor-default"
             >
               <div className="h-9 w-9 rounded-lg bg-gold-500/10 flex items-center justify-center mb-4">
@@ -77,14 +75,13 @@ export function Testimonials() {
           className="border border-gold-500/20 rounded-2xl p-8 text-center bg-gold-500/[0.03]"
         >
           <p className="text-gold-400 text-xs font-semibold uppercase tracking-widest mb-2">
-            Be Among the First
+            Get Early Access
           </p>
           <h3 className="text-white font-[var(--font-heading)] text-xl font-bold mb-2">
-            Your review could be the first one here.
+            Be among the first to try Emalink.
           </h3>
           <p className="text-white/50 text-sm mb-6 max-w-md mx-auto">
-            Get early access, priority onboarding, and locked-in pricing before
-            we go public.
+            Join property owners testing our platform. Early access users get priority support and special pricing.
           </p>
           <LinkButton href="/contact" variant="gold" size="lg">
             Request Early Access
