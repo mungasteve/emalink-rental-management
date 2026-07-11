@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   Building2,
   Users2,
@@ -9,6 +10,7 @@ import {
   Scale,
   Megaphone,
   CheckCircle2,
+  ChevronDown,
 } from "lucide-react";
 
 const services = [
@@ -22,6 +24,7 @@ const services = [
       "Tenant complaint resolution",
       "Property maintenance coordination",
     ],
+    expandedContent: "Our dedicated property managers handle all day-to-day operations, ensuring your property is well-maintained and your tenants are satisfied. We conduct regular inspections, manage lease renewals, resolve tenant issues promptly, and coordinate all maintenance activities. You'll have direct access to your manager for any concerns.",
   },
   {
     icon: Users2,
@@ -33,6 +36,7 @@ const services = [
       "Reference calls",
       "Credit assessment",
     ],
+    expandedContent: "We conduct thorough vetting of all potential tenants to minimize risk. Our screening process includes comprehensive background checks, employment verification with current employers, reference calls from previous landlords, and credit assessments. This ensures you get reliable tenants who pay on time and respect your property.",
   },
   {
     icon: Wrench,
@@ -44,6 +48,7 @@ const services = [
       "Cost approval workflow",
       "Emergency repair handling",
     ],
+    expandedContent: "Maintenance requests are logged immediately and tracked to completion. We have a vetted network of reliable contractors for all types of repairs. For costs above KES 10,000, we get your approval before proceeding. Emergency repairs are handled 24/7 to minimize tenant disruption and property damage.",
   },
   {
     icon: CreditCard,
@@ -55,6 +60,7 @@ const services = [
       "Monthly itemized statements",
       "Instant payment confirmation",
     ],
+    expandedContent: "We handle all rent collection through M-Pesa and bank transfers, with automatic reminders sent to tenants. You receive detailed monthly statements showing rent collected, expenses paid, and your net payout. Payments are processed instantly, and you're notified of every transaction. No more chasing tenants for rent.",
   },
   {
     icon: Scale,
@@ -66,6 +72,7 @@ const services = [
       "Eviction support",
       "Landlord-Tenant Act compliance",
     ],
+    expandedContent: "All leases are drafted in compliance with Kenyan law and tailored to your property. We manage notice periods, handle eviction procedures when necessary, and ensure you're always compliant with the Landlord-Tenant Act. Our legal expertise protects you from costly disputes and ensures proper documentation.",
   },
   {
     icon: Megaphone,
@@ -77,10 +84,13 @@ const services = [
       "High-definition video tours",
       "Tenant acquisition support",
     ],
+    expandedContent: "We market your property across all major Kenyan rental portals with professional photography and HD video tours. Our social media campaigns reach qualified tenants actively searching for rentals. We handle tenant acquisition from start to finish, minimizing vacancy periods and maximizing your rental income.",
   },
 ];
 
 export function Services() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -137,37 +147,75 @@ export function Services() {
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className="group bg-white rounded-2xl p-6 sm:p-8 elevation-card hover:elevation-card-hover transition-all duration-300 ease-out border border-cream-200 hover:border-gold-500/30"
+              className="group bg-white rounded-2xl elevation-card hover:elevation-card-hover transition-all duration-300 ease-out border border-cream-200 hover:border-gold-500/30 overflow-hidden"
             >
-              {/* Icon */}
-              <div className="mb-6">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-navy-800 to-navy-700 flex items-center justify-center group-hover:from-gold-500 group-hover:to-gold-600 transition-all duration-300">
-                  <service.icon className="h-7 w-7 text-white" />
+              <button
+                onClick={() =>
+                  setExpandedIndex(expandedIndex === index ? null : index)
+                }
+                className="w-full text-left p-6 sm:p-8 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 rounded-2xl"
+              >
+                {/* Icon */}
+                <div className="mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-navy-800 to-navy-700 flex items-center justify-center group-hover:from-gold-500 group-hover:to-gold-600 transition-all duration-300">
+                    <service.icon className="h-7 w-7 text-white" />
+                  </div>
                 </div>
-              </div>
 
-              {/* Title */}
-              <h3 className="font-[var(--font-heading)] text-xl sm:text-2xl font-bold text-navy-800 mb-2">
-                {service.title}
-              </h3>
+                {/* Title */}
+                <h3 className="font-[var(--font-heading)] text-xl sm:text-2xl font-bold text-navy-800 mb-2">
+                  {service.title}
+                </h3>
 
-              {/* Main Description */}
-              <p className="text-navy-600 text-base leading-relaxed mb-6 font-medium">
-                {service.description}
-              </p>
+                {/* Main Description */}
+                <p className="text-navy-600 text-base leading-relaxed mb-6 font-medium">
+                  {service.description}
+                </p>
 
-              {/* Details List */}
-              <ul className="space-y-3">
-                {service.details.map((detail, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-gold-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-navy-600 text-sm leading-relaxed">{detail}</span>
-                  </li>
-                ))}
-              </ul>
+                {/* Details List */}
+                <ul className="space-y-3 mb-6">
+                  {service.details.map((detail, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-gold-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-navy-600 text-sm leading-relaxed">
+                        {detail}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
 
-              {/* Hover Accent */}
-              <div className="mt-6 pt-6 border-t border-cream-200 group-hover:border-gold-500/20 transition-colors duration-300">
+                {/* Expand Button */}
+                <div className="flex items-center gap-2 text-gold-600 font-semibold text-sm">
+                  <span>
+                    {expandedIndex === index ? "Show less" : "Learn more"}
+                  </span>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-300 ${
+                      expandedIndex === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </div>
+              </button>
+
+              {/* Expanded Content */}
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{
+                  height: expandedIndex === index ? "auto" : 0,
+                  opacity: expandedIndex === index ? 1 : 0,
+                }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden border-t border-cream-200"
+              >
+                <div className="px-6 sm:px-8 py-6 bg-cream-50">
+                  <p className="text-navy-700 text-sm leading-relaxed">
+                    {service.expandedContent}
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Service Number */}
+              <div className="px-6 sm:px-8 py-4 border-t border-cream-200 group-hover:border-gold-500/20 transition-colors duration-300 bg-white">
                 <p className="text-xs text-gold-500 font-semibold uppercase tracking-wider">
                   Service #{String(index + 1).padStart(2, "0")}
                 </p>
