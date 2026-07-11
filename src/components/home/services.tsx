@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
-  Building2,
+  Users,
   Users2,
   Wrench,
   CreditCard,
@@ -15,76 +15,76 @@ import {
 
 const services = [
   {
-    icon: Building2,
-    title: "Property Management",
+    icon: Users,
+    title: "Tenant Relations",
     description: "We act as the point of contact between you and your tenants.",
+    expandedContent: "Our dedicated property managers handle all day-to-day operations, ensuring your property is well-maintained and your tenants are satisfied. We conduct regular inspections, manage lease renewals, resolve tenant issues promptly, and coordinate all maintenance activities. You'll have direct access to your manager for any concerns.",
     details: [
       "Regular property inspections",
       "Lease renewals and negotiations",
       "Tenant complaint resolution",
       "Property maintenance coordination",
     ],
-    expandedContent: "Our dedicated property managers handle all day-to-day operations, ensuring your property is well-maintained and your tenants are satisfied. We conduct regular inspections, manage lease renewals, resolve tenant issues promptly, and coordinate all maintenance activities. You'll have direct access to your manager for any concerns.",
   },
   {
     icon: Users2,
     title: "Tenant Screening",
     description: "We find reliable tenants before they get the keys.",
+    expandedContent: "We conduct thorough vetting of all potential tenants to minimize risk. Our screening process includes comprehensive background checks, employment verification with current employers, reference calls from previous landlords, and credit assessments. This ensures you get reliable tenants who pay on time and respect your property.",
     details: [
       "Background checks",
       "Employment verification",
       "Reference calls",
       "Credit assessment",
     ],
-    expandedContent: "We conduct thorough vetting of all potential tenants to minimize risk. Our screening process includes comprehensive background checks, employment verification with current employers, reference calls from previous landlords, and credit assessments. This ensures you get reliable tenants who pay on time and respect your property.",
   },
   {
     icon: Wrench,
     title: "Maintenance Coordination",
     description: "Issues get fixed fast. You approve costs above KES 10,000.",
+    expandedContent: "Maintenance requests are logged immediately and tracked to completion. We have a vetted network of reliable contractors for all types of repairs. For costs above KES 10,000, we get your approval before proceeding. Emergency repairs are handled 24/7 to minimize tenant disruption and property damage.",
     details: [
       "Maintenance request tracking",
       "Vetted contractor network",
       "Cost approval workflow",
       "Emergency repair handling",
     ],
-    expandedContent: "Maintenance requests are logged immediately and tracked to completion. We have a vetted network of reliable contractors for all types of repairs. For costs above KES 10,000, we get your approval before proceeding. Emergency repairs are handled 24/7 to minimize tenant disruption and property damage.",
   },
   {
     icon: CreditCard,
     title: "Rent Collection & Payouts",
     description: "Automated collection. Monthly statements. Zero hassle.",
+    expandedContent: "We handle all rent collection through M-Pesa and bank transfers, with automatic reminders sent to tenants. You receive detailed monthly statements showing rent collected, expenses paid, and your net payout. Payments are processed instantly, and you're notified of every transaction. No more chasing tenants for rent.",
     details: [
       "M-Pesa and bank collection",
       "Automatic payment reminders",
       "Monthly itemized statements",
       "Instant payment confirmation",
     ],
-    expandedContent: "We handle all rent collection through M-Pesa and bank transfers, with automatic reminders sent to tenants. You receive detailed monthly statements showing rent collected, expenses paid, and your net payout. Payments are processed instantly, and you're notified of every transaction. No more chasing tenants for rent.",
   },
   {
     icon: Scale,
     title: "Legal & Compliance",
     description: "We handle the legal side. You stay compliant.",
+    expandedContent: "All leases are drafted in compliance with Kenyan law and tailored to your property. We manage notice periods, handle eviction procedures when necessary, and ensure you're always compliant with the Landlord-Tenant Act. Our legal expertise protects you from costly disputes and ensures proper documentation.",
     details: [
       "Lease agreement drafting",
       "Notice period management",
       "Eviction support",
       "Landlord-Tenant Act compliance",
     ],
-    expandedContent: "All leases are drafted in compliance with Kenyan law and tailored to your property. We manage notice periods, handle eviction procedures when necessary, and ensure you're always compliant with the Landlord-Tenant Act. Our legal expertise protects you from costly disputes and ensures proper documentation.",
   },
   {
     icon: Megaphone,
     title: "Marketing & Vacancy",
     description: "Minimize empty units. Maximize occupancy.",
+    expandedContent: "We market your property across all major Kenyan rental portals with professional photography and HD video tours. Our social media campaigns reach qualified tenants actively searching for rentals. We handle tenant acquisition from start to finish, minimizing vacancy periods and maximizing your rental income.",
     details: [
       "Listings on major Kenyan portals",
       "Social media marketing",
       "High-definition video tours",
       "Tenant acquisition support",
     ],
-    expandedContent: "We market your property across all major Kenyan rental portals with professional photography and HD video tours. Our social media campaigns reach qualified tenants actively searching for rentals. We handle tenant acquisition from start to finish, minimizing vacancy periods and maximizing your rental income.",
   },
 ];
 
@@ -141,19 +141,19 @@ export function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 auto-rows-max"
         >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className="group bg-white rounded-2xl elevation-card hover:elevation-card-hover transition-all duration-300 ease-out border border-cream-200 hover:border-gold-500/30 overflow-hidden"
+              className="group bg-white rounded-2xl elevation-card hover:elevation-card-hover transition-all duration-300 ease-out border border-cream-200 hover:border-gold-500/30 overflow-hidden flex flex-col"
             >
               <button
                 onClick={() =>
                   setExpandedIndex(expandedIndex === index ? null : index)
                 }
-                className="w-full text-left p-6 sm:p-8 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 rounded-2xl"
+                className="w-full text-left p-6 sm:p-8 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 flex flex-col flex-1"
               >
                 {/* Icon */}
                 <div className="mb-6">
@@ -168,12 +168,12 @@ export function Services() {
                 </h3>
 
                 {/* Main Description */}
-                <p className="text-navy-600 text-base leading-relaxed font-medium mb-6">
+                <p className="text-navy-600 text-base leading-relaxed font-medium mb-6 flex-1">
                   {service.description}
                 </p>
 
-                {/* Expand Button */}
-                <div className="flex items-center gap-2 text-gold-600 font-semibold text-sm">
+                {/* Expand Button - pinned to bottom */}
+                <div className="flex items-center gap-2 text-gold-600 font-semibold text-sm mt-auto">
                   <span>
                     {expandedIndex === index ? "Show less" : "Learn more"}
                   </span>
