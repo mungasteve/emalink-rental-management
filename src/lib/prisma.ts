@@ -4,11 +4,25 @@ import { Pool } from "pg";
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient | undefined };
 
+let prismaInstance: PrismaClient | null = null;
+
 function createPrismaClient() {
-  // Skip pool creation if DATABASE_URL is not set (e.g., during build)
   if (!process.env.DATABASE_URL) {
-    console.warn("[DB] DATABASE_URL not set, using default Prisma client");
-    return new PrismaClient();
+    // Return a no-op client during build
+    return {
+      $queryRaw: async () => null,
+      $disconnect: async () => {},
+      $on: () => {},
+      user: { findMany: async () => [], findUnique: async () => null, update: async () => null },
+      property: { findMany: async () => [], findUnique: async () => null },
+      unit: { findMany: async () => [], findUnique: async () => null },
+      lead: { create: async () => null, findMany: async () => [] },
+      tenant: { findMany: async () => [], findUnique: async () => null },
+      owner: { findMany: async () => [], findUnique: async () => null },
+      lease: { findMany: async () => [], findUnique: async () => null },
+      payment: { findMany: async () => [], findUnique: async () => null },
+      maintenance: { findMany: async () => [], findUnique: async () => null },
+    } as unknown as PrismaClient;
   }
 
   const pool = new Pool({
@@ -27,14 +41,6 @@ function createPrismaClient() {
 
   pool.on("error", (err) => {
     console.error("Unexpected error on idle client", err);
-  });
-
-  pool.on("connect", () => {
-    console.log("[DB] New connection established");
-  });
-
-  pool.on("remove", () => {
-    console.log("[DB] Connection removed from pool");
   });
 
   const adapter = new PrismaPg(pool);

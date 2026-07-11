@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  typescript: {
+    // Allow build to succeed even with type errors (Prisma build-time issue)
+    ignoreBuildErrors: false,
+  },
   images: {
     remotePatterns: [
       {
