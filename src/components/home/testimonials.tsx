@@ -8,7 +8,7 @@ const trustSignals = [
   {
     icon: ShieldCheck,
     title: "Established Operator",
-    desc: "Founded by E.O Masara with 10 dedicated professionals ready to manage your properties.",
+    desc: "Founded by E.O Masara with property management expertise and a commitment to transparency.",
   },
   {
     icon: Zap,

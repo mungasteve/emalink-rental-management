@@ -75,7 +75,7 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-gold-400 flex-shrink-0" />
-              <span className="text-white/80 text-sm">10 dedicated professionals on your team</span>
+              <span className="text-white/80 text-sm">Dedicated team with property management expertise</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-gold-400 flex-shrink-0" />
@@ -112,7 +112,7 @@ export function Hero() {
             variants={itemVariants}
             className="text-xs text-white/50 mt-8"
           >
-            Founded by E.O Masara • Established operator • Transparent pricing
+            Founded by E.O Masara • Property management expertise • Transparent pricing
           </motion.p>
         </motion.div>
       </div>

@@ -112,7 +112,7 @@ export function Services() {
   };
 
   return (
-    <section className="section-padding bg-gradient-to-b from-white to-cream-50">
+    <section className="section-padding bg-gradient-to-b from-white to-cream-50 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -141,13 +141,13 @@ export function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 auto-rows-max"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className="group bg-white rounded-2xl elevation-card hover:elevation-card-hover transition-all duration-300 ease-out border border-cream-200 hover:border-gold-500/30 overflow-hidden flex flex-col"
+              className="group bg-white rounded-2xl elevation-card hover:elevation-card-hover transition-all duration-300 ease-out border border-cream-200 hover:border-gold-500/30 overflow-hidden flex flex-col h-full"
             >
               <button
                 onClick={() =>

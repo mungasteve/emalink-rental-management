@@ -92,7 +92,7 @@ export function WhyChooseUs() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-white/70 text-lg leading-relaxed pt-4 border-t border-white/10"
             >
-              At Emalink, we believe property management should be simple, transparent, and professional. You shouldn't have to choose between managing your properties yourself or trusting someone who disappears. We're here to prove there's a better way — one where you get dedicated attention, complete transparency, and peace of mind knowing your properties are in capable hands.
+              Ready to move forward? Schedule a demo to see how Emalink works in practice.
             </motion.p>
           </div>
         </motion.div>
