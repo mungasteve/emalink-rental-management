@@ -1,92 +1,82 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Users, Award, Target } from "lucide-react";
+import { LinkButton } from "@/components/ui/link-button";
+
 export default function AboutPage() {
   return (
     <div>
+      {/* Hero */}
       <div className="bg-navy-800 py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 max-w-2xl">
-          <p className="text-gold-300 font-semibold text-xs uppercase tracking-[0.15em] mb-3">
-            About Emalink
-          </p>
-          <h1 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
-            We started because landlords in Kenya deserve better tools.
-          </h1>
-          <p className="text-white/55 text-sm leading-relaxed max-w-xl">
-            Most property management in Kenya still runs on WhatsApp messages,
-            handwritten receipts, and phone calls that go unanswered. We&apos;re
-            building the infrastructure to change that.
-          </p>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-gold-300 font-semibold text-xs uppercase tracking-[0.15em] mb-3">
+              About Us
+            </p>
+            <h1 className="font-[var(--font-heading)] text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+              Built by property managers, for property managers.
+            </h1>
+            <p className="text-white/70 text-lg max-w-2xl">
+              Emalink was founded to solve the real problems property owners face in Kenya. We've been managing properties ourselves, so we know what works.
+            </p>
+          </motion.div>
         </div>
       </div>
 
-      <section className="section-padding">
+      {/* Founder Section */}
+      <section className="section-padding bg-cream-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            <div>
-              <p className="text-navy-600 font-semibold text-xs uppercase tracking-[0.15em] mb-3">
-                The problem we&apos;re solving
-              </p>
-              <h2 className="font-[var(--font-heading)] text-2xl sm:text-3xl font-bold text-navy-800 mb-6 leading-tight">
-                Property ownership in Kenya is harder than it should be.
-              </h2>
-              <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
-                <p>
-                  Landlords chase rent manually every month. Tenants have no
-                  formal way to report issues. Maintenance requests get lost.
-                  Financial records are scattered across M-Pesa statements and
-                  notebooks.
-                </p>
-                <p>
-                  Emalink is a property management platform built specifically
-                  for the Kenyan market — M-Pesa integrated, legally compliant,
-                  and designed for the way property actually works here.
-                </p>
-                <p>
-                  We handle the operations so owners can focus on growing their
-                  portfolio, and tenants get a rental experience that actually
-                  respects their time.
-                </p>
-              </div>
-            </div>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-navy-800 mb-3">
+              Founded by E.O Masara
+            </h2>
+            <p className="text-navy-600 text-lg max-w-2xl">
+              With years of experience managing properties across Kenya, E.O Masara founded Emalink to bring professional property management tools to every landlord.
+            </p>
+          </motion.div>
 
-            <div className="space-y-6">
-              {[
-                {
-                  title: "Transparency over everything",
-                  desc: "Every transaction, every maintenance request, every communication is logged and visible to the right people. No surprises at month end.",
-                },
-                {
-                  title: "Built for Kenya, not adapted for it",
-                  desc: "M-Pesa collection, EARB compliance, Kenyan lease law — these aren't afterthoughts. They're the foundation.",
-                },
-                {
-                  title: "We're accountable to both sides",
-                  desc: "We work for property owners, but we treat tenants like customers. A good tenant relationship is the best asset protection there is.",
-                },
-              ].map((v) => (
-                <div key={v.title} className="border-l-2 border-navy-800/10 pl-5 hover:border-gold-500 transition-colors">
-                  <h3 className="font-semibold text-navy-800 text-sm mb-1.5">{v.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl p-8 elevation-card"
+          >
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="bg-gradient-to-br from-navy-900 to-navy-800 rounded-xl h-80 flex items-center justify-center">
+                <div className="text-center">
+                  <Users className="w-16 h-16 text-gold-400 mx-auto mb-4" />
+                  <p className="text-white/60 text-sm">Founder Photo</p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-navy-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center max-w-2xl mx-auto">
-          <p className="text-gold-300 font-semibold text-xs uppercase tracking-[0.15em] mb-3">
-            Where we are
-          </p>
-          <h2 className="font-[var(--font-heading)] text-2xl sm:text-3xl font-bold text-white mb-4">
-            Currently onboarding our first properties.
-          </h2>
-          <p className="text-white/50 text-sm leading-relaxed max-w-lg mx-auto">
-            We&apos;re in early access. If you own property in Nairobi and want
-            a management partner who will actually pick up the phone — we&apos;d
-            like to talk.
-          </p>
-        </div>
-      </section>
-    </div>
-  );
-}
+              </div>
+              <div>
+                <h3 className="font-[var(--font-heading)] text-2xl font-bold text-navy-800 mb-4">
+                  E.O Masara
+                </h3>
+                <p className="text-navy-600 text-sm leading-relaxed mb-6">
+                  E.O Masara brings decades of property management experience to Emalink. Having managed hundreds of properties and worked directly with landlords, tenants, and maintenance teams, he understands the operational challenges that property owners face daily.
+                </p>
+                <p className="text-navy-600 text-sm leading-relaxed mb-6">
+                  His vision for Emalink is simple: create a platform that makes property management transparent, efficient, and fair for everyone involved.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <Award className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-navy-800">500+ Units Managed</p>
+                      <p className="text-navy-600 text-sm">Across Kenya</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Target className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-navy-800\">10 Dedicated Professionals</p>\n                      <p className="text-navy-600 text-sm\">Supporting property owners</p>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </motion.div>\n        </div>\n      </section>\n\n      {/* Team Section */}\n      <section className=\"section-padding bg-white\">\n        <div className=\"mx-auto max-w-7xl px-4 sm:px-6 lg:px-8\">\n          <motion.div\n            initial={{ opacity: 0, y: 12 }}\n            whileInView={{ opacity: 1, y: 0 }}\n            viewport={{ once: true }}\n            className=\"text-center mb-12\"\n          >\n            <h2 className=\"font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-navy-800 mb-3\">\n              Our Team\n            </h2>\n            <p className=\"text-navy-600 text-lg max-w-2xl mx-auto\">\n              10 dedicated professionals committed to making property management easier.\n            </p>\n          </motion.div>\n\n          <div className=\"grid md:grid-cols-2 lg:grid-cols-3 gap-8\">\n            {[1, 2, 3, 4, 5, 6].map((i) => (\n              <motion.div\n                key={i}\n                initial={{ opacity: 0, y: 20 }}\n                whileInView={{ opacity: 1, y: 0 }}\n                viewport={{ once: true }}\n                transition={{ delay: i * 0.05 }}\n                className=\"bg-cream-50 rounded-xl p-6 text-center elevation-card\"\n              >\n                <div className=\"w-20 h-20 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 mx-auto mb-4 flex items-center justify-center\">\n                  <Users className=\"w-10 h-10 text-white\" />\n                </div>\n                <h3 className=\"font-semibold text-navy-800 text-lg mb-1\">Team Member</h3>\n                <p className=\"text-navy-600 text-sm mb-3\">Role</p>\n                <p className=\"text-navy-600 text-xs leading-relaxed\">\n                  Dedicated to delivering excellent property management solutions.\n                </p>\n              </motion.div>\n            ))}\n          </div>\n        </div>\n      </section>\n\n      {/* Mission Section */}\n      <section className=\"section-padding bg-navy-800\">\n        <div className=\"mx-auto max-w-7xl px-4 sm:px-6 lg:px-8\">\n          <div className=\"grid md:grid-cols-3 gap-8\">\n            <motion.div\n              initial={{ opacity: 0, y: 20 }}\n              whileInView={{ opacity: 1, y: 0 }}\n              viewport={{ once: true }}\n              className=\"text-center\"\n            >\n              <div className=\"w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center mx-auto mb-4\">\n                <Target className=\"w-6 h-6 text-gold-400\" />\n              </div>\n              <h3 className=\"font-semibold text-white text-lg mb-2\">Our Mission</h3>\n              <p className=\"text-white/70 text-sm\">\n                Make professional property management accessible to every landlord in Kenya.\n              </p>\n            </motion.div>\n\n            <motion.div\n              initial={{ opacity: 0, y: 20 }}\n              whileInView={{ opacity: 1, y: 0 }}\n              viewport={{ once: true }}\n              transition={{ delay: 0.1 }}\n              className=\"text-center\"\n            >\n              <div className=\"w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center mx-auto mb-4\">\n                <Award className=\"w-6 h-6 text-gold-400\" />\n              </div>\n              <h3 className=\"font-semibold text-white text-lg mb-2\">Our Values</h3>\n              <p className=\"text-white/70 text-sm\">\n                Transparency, reliability, and putting landlords first in everything we do.\n              </p>\n            </motion.div>\n\n            <motion.div\n              initial={{ opacity: 0, y: 20 }}\n              whileInView={{ opacity: 1, y: 0 }}\n              viewport={{ once: true }}\n              transition={{ delay: 0.2 }}\n              className=\"text-center\"\n            >\n              <div className=\"w-12 h-12 rounded-lg bg-gold-500/10 flex items-center justify-center mx-auto mb-4\">\n                <Users className=\"w-6 h-6 text-gold-400\" />\n              </div>\n              <h3 className=\"font-semibold text-white text-lg mb-2\">Our Commitment</h3>\n              <p className=\"text-white/70 text-sm\">\n                Continuous improvement and support for every property owner we serve.\n              </p>\n            </motion.div>\n          </div>\n        </div>\n      </section>\n\n      {/* CTA */}\n      <section className=\"section-padding bg-cream-50\">\n        <div className=\"mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center\">\n          <motion.div\n            initial={{ opacity: 0, y: 12 }}\n            whileInView={{ opacity: 1, y: 0 }}\n            viewport={{ once: true }}\n          >\n            <h2 className=\"font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-navy-800 mb-4\">\n              Join property owners already using Emalink\n            </h2>\n            <p className=\"text-navy-600 text-lg mb-8 max-w-2xl mx-auto\">\n              Manage your properties with confidence. Schedule a demo today.\n            </p>\n            <LinkButton href=\"/contact\" variant=\"gold\" size=\"lg\" className=\"px-8\">\n              Schedule a Demo\n            </LinkButton>\n          </motion.div>\n        </div>\n      </section>\n    </div>\n  );\n}\n

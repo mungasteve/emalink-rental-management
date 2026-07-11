@@ -22,7 +22,7 @@ export function Hero() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -38,8 +38,8 @@ export function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(201,168,76,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(201,168,76,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left: Content */}
           <motion.div
             variants={containerVariants}
@@ -47,35 +47,35 @@ export function Hero() {
             animate="visible"
             className="max-w-2xl"
           >
-            {/* Professional eyebrow */}
-            <motion.div variants={itemVariants} className="flex items-center gap-2 mb-6">
+            {/* Eyebrow */}
+            <motion.div variants={itemVariants} className="flex items-center gap-2 mb-4">
               <div className="h-px w-8 bg-gold-400" />
-              <span className="text-gold-300 font-medium text-sm tracking-wide uppercase">
-                Property Management Platform
+              <span className="text-gold-300 font-semibold text-xs uppercase tracking-widest">
+                Established Operator
               </span>
             </motion.div>
 
-            {/* Professional headline */}
+            {/* Main Headline */}
             <motion.h1
               variants={itemVariants}
-              className="font-[var(--font-heading)] text-5xl sm:text-6xl lg:text-6xl font-bold text-white leading-[1.1] mb-6"
+              className="font-[var(--font-heading)] text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] sm:leading-[1.05] mb-4 sm:mb-6"
             >
-              Stop chasing rent.
-              <span className="block text-gold-400">Start managing.</span>
+              Manage 500+ units.
+              <span className="block text-gold-400">Trusted by landlords.</span>
             </motion.h1>
 
-            {/* Professional subheading */}
+            {/* Subheading */}
             <motion.p
               variants={itemVariants}
-              className="text-lg text-white/75 max-w-xl leading-relaxed mb-8"
+              className="text-lg sm:text-xl text-white/80 max-w-2xl leading-relaxed mb-6 sm:mb-8"
             >
-              Automate rent collection, maintenance requests, and tenant communication. Get real-time insights into your portfolio.
+              Founded by E.O Masara. 10 dedicated professionals. Complete property management from tenant screening to rent collection to maintenance coordination.
             </motion.p>
 
-            {/* Professional trust indicators */}
+            {/* Trust indicators */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-6 mb-10 pt-2"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8 sm:mb-10"
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center flex-shrink-0">
@@ -83,7 +83,7 @@ export function Hero() {
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">500+</p>
-                  <p className="text-white/60 text-xs">Properties Managed</p>
+                  <p className="text-white/60 text-xs">Units Under Management</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -91,42 +91,43 @@ export function Hero() {
                   <Lock className="w-5 h-5 text-gold-400" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm">Bank-Grade</p>
-                  <p className="text-white/60 text-xs">Security & Compliance</p>
+                  <p className="text-white font-semibold text-sm">10 Professionals</p>
+                  <p className="text-white/60 text-xs">Dedicated Team</p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Professional CTA buttons */}
+            {/* CTA buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
-              <LinkButton
-                href="/properties"
-                size="lg"
-                variant="gold"
-                className="px-8 group"
-              >
-                <span>Start Browsing</span>
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </LinkButton>
               <LinkButton
                 href="/contact"
                 size="lg"
-                variant="outline-light"
-                className="px-8"
+                variant="gold"
+                className="px-6 sm:px-8 group w-full sm:w-auto justify-center sm:justify-start"
               >
-                Schedule Demo
+                <span>Schedule Demo</span>
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </LinkButton>
+              <LinkButton
+                href="/properties"
+                size="lg"
+                variant="outline-light"
+                className="px-6 sm:px-8 w-full sm:w-auto justify-center sm:justify-start"
+              >
+                Browse Properties
               </LinkButton>
             </motion.div>
           </motion.div>
 
-          {/* Right: Animated Stats */}
+          {/* Right: Animated Stats - Hidden on mobile, shown on lg */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
+            className="hidden lg:block"
           >
             <HeroStats />
           </motion.div>

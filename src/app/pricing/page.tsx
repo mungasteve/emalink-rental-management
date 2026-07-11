@@ -8,8 +8,8 @@ const pricingTiers = [
   {
     name: "Individual",
     description: "For single property owners",
-    price: "2%",
-    period: "of collected rent",
+    price: "10%",
+    period: "of gross receipts",
     features: [
       "Up to 5 properties",
       "Up to 20 units",
@@ -25,8 +25,8 @@ const pricingTiers = [
   {
     name: "Portfolio",
     description: "For growing property portfolios",
-    price: "1.5%",
-    period: "of collected rent",
+    price: "10%",
+    period: "of gross receipts",
     features: [
       "Unlimited properties",
       "Unlimited units",
@@ -66,8 +66,12 @@ const pricingTiers = [
 
 const faqs = [
   {
-    q: "How is the 2% calculated?",
-    a: "The percentage is calculated on rent actually collected through Emalink. If a tenant pays KES 50,000, you pay KES 1,000 (2%). No hidden fees.",
+    q: "How is the 10% calculated?",
+    a: "The percentage is calculated on gross receipts collected through Emalink. If a tenant pays KES 50,000, you pay KES 5,000 (10%). No hidden fees.",
+  },
+  {
+    q: "What about interest-free loans?",
+    a: "Emalink offers short-term loans to landlords, recovered directly from rent at zero interest. Contact us for eligibility and terms.",
   },
   {
     q: "What if I use M-Pesa outside Emalink?",
@@ -76,10 +80,6 @@ const faqs = [
   {
     q: "Can I switch tiers?",
     a: "Yes. You can upgrade or downgrade anytime. Changes take effect at the start of your next billing cycle.",
-  },
-  {
-    q: "Is there a setup fee?",
-    a: "No setup fees. You only pay for rent collected. First month is free to test the platform.",
   },
   {
     q: "What payment methods do you accept?",
@@ -106,7 +106,7 @@ export default function PricingPage() {
               Simple, honest pricing.
             </h1>
             <p className="text-white/70 text-lg max-w-2xl mx-auto">
-              No hidden fees. You only pay when rent is collected. Choose the plan that fits your portfolio.
+              10% of gross receipts. No hidden fees. Includes interest-free loans for qualified landlords. Choose the plan that fits your portfolio.
             </p>
           </motion.div>
         </div>
