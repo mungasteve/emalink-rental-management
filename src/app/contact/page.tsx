@@ -101,8 +101,8 @@ export default function ContactPage() {
                 {
                   icon: Phone,
                   label: "Phone",
-                  value: "+254 700 000 000",
-                  href: "tel:+254700000000",
+                  value: "Coming Soon",
+                  href: undefined,
                 },
                 {
                   icon: Mail,
@@ -220,7 +220,7 @@ export default function ContactPage() {
                         </label>
                         <Input
                           name="phone"
-                          placeholder="+254 700 000 000"
+                          placeholder="+254 7XX XXX XXX"
                           type="tel"
                         />
                       </div>

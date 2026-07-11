@@ -8,7 +8,7 @@ const trustSignals = [
   {
     icon: ShieldCheck,
     title: "Established Operator",
-    desc: "Founded by E.O Masara with 10 dedicated professionals managing 500+ units across Kenya.",
+    desc: "Founded by E.O Masara with 10 dedicated professionals ready to manage your properties.",
   },
   {
     icon: Zap,
@@ -105,7 +105,7 @@ export function Testimonials() {
             Ready to streamline your property management?
           </h3>
           <p className="text-white/50 text-sm sm:text-base mb-6 max-w-md mx-auto leading-relaxed">
-            Join property owners already using Emalink to manage their portfolios more efficiently.
+            Be among the first property owners to experience professional, transparent property management built for Kenya.
           </p>
           <LinkButton href="/contact" variant="gold" size="lg" className="px-6 sm:px-8">
             Schedule a Demo

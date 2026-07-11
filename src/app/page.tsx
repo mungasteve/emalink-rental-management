@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/hero";
 import { Services } from "@/components/home/services";
+import { WhyChooseUs } from "@/components/home/why-choose-us";
 import { Testimonials } from "@/components/home/testimonials";
 import { ContactCTA } from "@/components/home/contact-cta";
 
@@ -8,6 +9,7 @@ export default function Home() {
     <>
       <Hero />
       <Services />
+      <WhyChooseUs />
       <Testimonials />
       <ContactCTA />
     </>

@@ -71,7 +71,7 @@ export function Hero() {
           >
             <div className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-gold-400 flex-shrink-0" />
-              <span className="text-white/80 text-sm">500+ units managed across Kenya</span>
+              <span className="text-white/80 text-sm">Built to manage 1 to 1,000+ units</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-gold-400 flex-shrink-0" />
