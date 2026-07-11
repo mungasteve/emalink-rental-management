@@ -33,7 +33,7 @@ export function Hero() {
         <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-gold-500/[0.05] to-transparent blur-[100px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-32">
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -50,7 +50,7 @@ export function Hero() {
           {/* Main Headline */}
           <motion.h1
             variants={itemVariants}
-            className="font-[var(--font-heading)] text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6"
+            className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.2] mb-4"
           >
             Professional Property Management
             <span className="block text-gold-400">Made Simple</span>
@@ -59,7 +59,7 @@ export function Hero() {
           {/* Subheading */}
           <motion.p
             variants={itemVariants}
-            className="text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed mb-8"
+            className="text-base sm:text-lg text-white/70 max-w-2xl leading-relaxed mb-6"
           >
             Manage your rental portfolio with confidence. From tenant screening to rent collection to maintenance coordination—we handle the complexity so you can focus on growth.
           </motion.p>
@@ -67,32 +67,32 @@ export function Hero() {
           {/* Key Benefits */}
           <motion.div
             variants={itemVariants}
-            className="space-y-3 mb-10"
+            className="space-y-2 mb-8"
           >
-            <div className="flex items-center gap-3">
-              <CheckCircle2 className="h-5 w-5 text-gold-400 flex-shrink-0" />
-              <span className="text-white/80">500+ units managed across Kenya</span>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-gold-400 flex-shrink-0" />
+              <span className="text-white/80 text-sm">500+ units managed across Kenya</span>
             </div>
-            <div className="flex items-center gap-3">
-              <CheckCircle2 className="h-5 w-5 text-gold-400 flex-shrink-0" />
-              <span className="text-white/80">10 dedicated professionals on your team</span>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-gold-400 flex-shrink-0" />
+              <span className="text-white/80 text-sm">10 dedicated professionals on your team</span>
             </div>
-            <div className="flex items-center gap-3">
-              <CheckCircle2 className="h-5 w-5 text-gold-400 flex-shrink-0" />
-              <span className="text-white/80">Transparent 10% fee with no hidden charges</span>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-gold-400 flex-shrink-0" />
+              <span className="text-white/80 text-sm">Transparent 10% fee with no hidden charges</span>
             </div>
           </motion.div>
 
           {/* CTA buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-3"
           >
             <LinkButton
               href="/properties"
               size="lg"
               variant="gold"
-              className="px-8 group w-full sm:w-auto justify-center sm:justify-start"
+              className="px-6 sm:px-8 group w-full sm:w-auto justify-center sm:justify-start text-sm"
             >
               <span>Browse Properties</span>
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -101,7 +101,7 @@ export function Hero() {
               href="/contact"
               size="lg"
               variant="outline-light"
-              className="px-8 w-full sm:w-auto justify-center sm:justify-start"
+              className="px-6 sm:px-8 w-full sm:w-auto justify-center sm:justify-start text-sm"
             >
               Schedule a Demo
             </LinkButton>
@@ -110,7 +110,7 @@ export function Hero() {
           {/* Trust line */}
           <motion.p
             variants={itemVariants}
-            className="text-sm text-white/50 mt-12"
+            className="text-xs text-white/50 mt-8"
           >
             Founded by E.O Masara • Established operator • Transparent pricing
           </motion.p>
