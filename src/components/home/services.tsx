@@ -168,21 +168,9 @@ export function Services() {
                 </h3>
 
                 {/* Main Description */}
-                <p className="text-navy-600 text-base leading-relaxed mb-6 font-medium">
+                <p className="text-navy-600 text-base leading-relaxed font-medium mb-6">
                   {service.description}
                 </p>
-
-                {/* Details List */}
-                <ul className="space-y-3 mb-6">
-                  {service.details.map((detail, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-gold-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-navy-600 text-sm leading-relaxed">
-                        {detail}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
 
                 {/* Expand Button */}
                 <div className="flex items-center gap-2 text-gold-600 font-semibold text-sm">
@@ -208,18 +196,21 @@ export function Services() {
                 className="overflow-hidden border-t border-cream-200"
               >
                 <div className="px-6 sm:px-8 py-6 bg-cream-50">
-                  <p className="text-navy-700 text-sm leading-relaxed">
+                  <p className="text-navy-700 text-sm leading-relaxed mb-6">
                     {service.expandedContent}
                   </p>
+                  <ul className="space-y-3">
+                    {service.details.map((detail, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-gold-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-navy-600 text-sm leading-relaxed">
+                          {detail}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
-
-              {/* Service Number */}
-              <div className="px-6 sm:px-8 py-4 border-t border-cream-200 group-hover:border-gold-500/20 transition-colors duration-300 bg-white">
-                <p className="text-xs text-gold-500 font-semibold uppercase tracking-wider">
-                  Service #{String(index + 1).padStart(2, "0")}
-                </p>
-              </div>
             </motion.div>
           ))}
         </motion.div>
