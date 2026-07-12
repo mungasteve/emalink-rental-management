@@ -4,86 +4,33 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { LinkButton } from "@/components/ui/link-button";
 
-const pricingTiers = [
-  {
-    name: "Individual",
-    description: "For single property owners",
-    price: "10%",
-    period: "of gross receipts",
-    features: [
-      "Up to 5 properties",
-      "Up to 20 units",
-      "Rent collection via M-Pesa",
-      "Tenant portal",
-      "Maintenance tracking",
-      "Monthly statements",
-      "Email support",
-    ],
-    cta: "Get Started",
-    highlighted: false,
-  },
-  {
-    name: "Portfolio",
-    description: "For growing property portfolios",
-    price: "10%",
-    period: "of gross receipts",
-    features: [
-      "Unlimited properties",
-      "Unlimited units",
-      "Rent collection via M-Pesa",
-      "Tenant portal",
-      "Maintenance tracking",
-      "Monthly statements",
-      "Multi-user access (up to 5 users)",
-      "Accountant access",
-      "Priority email support",
-      "Custom reporting",
-    ],
-    cta: "Get Started",
-    highlighted: true,
-  },
-  {
-    name: "Enterprise",
-    description: "For large portfolios & institutions",
-    price: "Custom",
-    period: "based on volume",
-    features: [
-      "Unlimited everything",
-      "Dedicated account manager",
-      "Custom integrations",
-      "API access",
-      "Bulk import/export",
-      "Advanced reporting & analytics",
-      "Role-based access control",
-      "SLA commitments",
-      "24/7 phone support",
-      "On-premise deployment option",
-    ],
-    cta: "Contact Sales",
-    highlighted: false,
-  },
+const included = [
+  "Rent collection via M-Pesa with instant confirmation",
+  "Tenant screening and onboarding",
+  "Maintenance request tracking and coordination",
+  "Monthly statements for landlords",
+  "Tenant portal for payments and requests",
+  "You approve all costs above KES 10,000",
+  "Legal compliance support",
+  "Dedicated point of contact",
 ];
 
 const faqs = [
   {
     q: "How is the 10% calculated?",
-    a: "The percentage is calculated on gross receipts collected through Emalink. If a tenant pays KES 50,000, you pay KES 5,000 (10%). No hidden fees.",
+    a: "On gross receipts collected through Emalink. If a tenant pays KES 50,000, you pay KES 5,000. No hidden fees on top of that.",
   },
   {
-    q: "What about interest-free loans?",
-    a: "Emalink offers short-term loans to landlords, recovered directly from rent at zero interest. Contact us for eligibility and terms.",
+    q: "What if a tenant pays outside Emalink?",
+    a: "You can log payments manually. We only charge on rent collected through our platform.",
   },
   {
-    q: "What if I use M-Pesa outside Emalink?",
-    a: "You can manually log payments in Emalink. We only charge on rent collected through our platform.",
+    q: "Are there setup or exit fees?",
+    a: "No setup fee. No lock-in contract. If you decide to leave, we hand over all records cleanly.",
   },
   {
-    q: "Can I switch tiers?",
-    a: "Yes. You can upgrade or downgrade anytime. Changes take effect at the start of your next billing cycle.",
-  },
-  {
-    q: "What payment methods do you accept?",
-    a: "Bank transfer, M-Pesa, or direct deduction from collected rent. Choose what works best for you.",
+    q: "What payment methods do you accept for the management fee?",
+    a: "Bank transfer, M-Pesa, or direct deduction from collected rent — whichever works for you.",
   },
 ];
 
@@ -100,96 +47,61 @@ export default function PricingPage() {
             className="text-center"
           >
             <p className="text-gold-300 font-semibold text-xs uppercase tracking-[0.15em] mb-3">
-              Transparent Pricing
+              Pricing
             </p>
             <h1 className="font-[var(--font-heading)] text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
-              Simple, honest pricing.
+              One fee. Everything included.
             </h1>
-            <p className="text-white/70 text-lg max-w-2xl mx-auto">
-              10% of gross receipts. No hidden fees. Includes interest-free loans for qualified landlords. Choose the plan that fits your portfolio.
+            <p className="text-white/70 text-lg max-w-xl mx-auto">
+              10% of gross receipts collected. No hidden charges, no setup fee, no lock-in.
             </p>
           </motion.div>
         </div>
       </div>
 
-      {/* Pricing Tiers */}
+      {/* Fee Card */}
       <section className="section-padding bg-cream-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            {pricingTiers.map((tier, i) => (
-              <motion.div
-                key={tier.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`rounded-2xl p-8 transition-all ${
-                  tier.highlighted
-                    ? "bg-navy-800 text-white border-2 border-gold-500 shadow-lg scale-105"
-                    : "bg-white border border-border elevation-card"
-                }`}
-              >
-                {tier.highlighted && (
-                  <div className="mb-4">
-                    <span className="bg-gold-500 text-navy-800 text-xs font-bold px-3 py-1 rounded-full">
-                      MOST POPULAR
-                    </span>
-                  </div>
-                )}
+        <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl p-8 sm:p-10 border border-border elevation-card"
+          >
+            <div className="text-center mb-8 pb-8 border-b border-border">
+              <div className="text-5xl font-bold text-navy-800 mb-1">10%</div>
+              <p className="text-navy-600">of gross receipts collected</p>
+            </div>
 
-                <h3 className={`font-[var(--font-heading)] text-2xl font-bold mb-1 ${tier.highlighted ? "text-white" : "text-navy-800"}`}>
-                  {tier.name}
-                </h3>
-                <p className={`text-sm mb-6 ${tier.highlighted ? "text-white/70" : "text-navy-600"}`}>
-                  {tier.description}
-                </p>
-
-                <div className="mb-6">
-                  <div className={`text-4xl font-bold ${tier.highlighted ? "text-gold-400" : "text-navy-800"}`}>
-                    {tier.price}
-                  </div>
-                  <p className={`text-sm ${tier.highlighted ? "text-white/60" : "text-navy-600"}`}>
-                    {tier.period}
-                  </p>
+            <div className="space-y-3">
+              {included.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-navy-700 text-sm">{item}</span>
                 </div>
+              ))}
+            </div>
 
-                <LinkButton
-                  href="/contact"
-                  variant={tier.highlighted ? "gold" : "outline"}
-                  className="w-full mb-8 justify-center"
-                >
-                  {tier.cta}
-                </LinkButton>
-
-                <div className="space-y-3">
-                  {tier.features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-3">
-                      <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${tier.highlighted ? "text-gold-400" : "text-gold-500"}`} />
-                      <span className={`text-sm ${tier.highlighted ? "text-white/80" : "text-navy-700"}`}>
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+            <div className="mt-8">
+              <LinkButton href="/contact" variant="gold" className="w-full justify-center">
+                Get in Touch
+              </LinkButton>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* FAQs */}
       <section className="section-padding bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <motion.h2
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-navy-800 mb-10 text-center"
           >
-            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-navy-800 mb-3">
-              Frequently Asked Questions
-            </h2>
-          </motion.div>
+            Questions
+          </motion.h2>
 
           <div className="space-y-6">
             {faqs.map((faq, i) => (
@@ -218,13 +130,13 @@ export default function PricingPage() {
             viewport={{ once: true }}
           >
             <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-white mb-4">
-              Ready to get started?
+              Interested in working with us?
             </h2>
-            <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-              First month is free. No credit card required. Start managing your properties today.
+            <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">
+              We are onboarding our first landlords now. Reach out and we will walk you through how it works.
             </p>
             <LinkButton href="/contact" variant="gold" size="lg" className="px-8">
-              Request Early Access
+              Contact Us
             </LinkButton>
           </motion.div>
         </div>
