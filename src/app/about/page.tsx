@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users } from "lucide-react";
+import { Users, Award, Target } from "lucide-react";
 import { LinkButton } from "@/components/ui/link-button";
 
 export default function AboutPage() {
