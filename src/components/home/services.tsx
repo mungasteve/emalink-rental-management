@@ -226,9 +226,8 @@ export function Services() {
           <p className="text-navy-600 text-lg mb-6">
             All services included in our transparent 10% management fee.
           </p>
-          <div className="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/20 rounded-full px-6 py-3">
+          <div className="inline-flex items-center gap-4 bg-gold-500/10 border border-gold-500/20 rounded-full px-6 py-3">
             <span className="text-sm font-semibold text-gold-600">✓ No hidden fees</span>
-            <span className="text-navy-400">•</span>
             <span className="text-sm font-semibold text-gold-600">✓ All-inclusive service</span>
           </div>
         </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -98,12 +98,6 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="space-y-4">
               {[
-                {
-                  icon: Phone,
-                  label: "Phone",
-                  value: "Coming Soon",
-                  href: undefined,
-                },
                 {
                   icon: Mail,
                   label: "Email",
@@ -303,11 +297,11 @@ export default function ContactPage() {
               },
               {
                 q: "What's the best way to contact you?",
-                a: "Email is fastest for non-urgent matters. For urgent issues, call us directly.",
+                a: "Email is fastest. Send us a message using the form and we'll respond within 24 hours.",
               },
               {
                 q: "Do you offer property viewings?",
-                a: "Yes. Schedule a viewing through the contact form or call us directly.",
+                a: "Yes. Select 'Schedule Demo' or 'Become a Tenant' in the inquiry type and we'll arrange a time.",
               },
               {
                 q: "Can I get a demo of the platform?",

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 const footerLinks = {
   company: [
@@ -11,7 +11,6 @@ const footerLinks = {
   ],
   resources: [
     { href: "/pricing", label: "Pricing" },
-    { href: "/services/terms", label: "Terms & Conditions" },
   ],
   portals: [
     { href: "/tenant", label: "Tenant Portal" },
@@ -88,12 +87,8 @@ export function Footer() {
               © {new Date().getFullYear()} Emalink Property Management. All rights reserved.
             </p>
             <div className="flex gap-6 text-xs text-white/50">
-              <Link href="/privacy" className="hover:text-white transition-colors duration-200">
-                Privacy
-              </Link>
-              <Link href="/services/terms" className="hover:text-white transition-colors duration-200">
-                Terms
-              </Link>
+              <span title="Coming soon">Privacy</span>
+              <span title="Coming soon">Terms</span>
             </div>
           </div>
         </div>

@@ -7,13 +7,13 @@ import { LinkButton } from "@/components/ui/link-button";
 const trustSignals = [
   {
     icon: ShieldCheck,
-    title: "Established Operator",
-    desc: "Founded by E.O Masara with property management expertise and a commitment to transparency.",
+    title: "Nairobi-Based Team",
+    desc: "Founded by E.O Masara. We manage properties ourselves, so we know what landlords actually need.",
   },
   {
     icon: Zap,
-    title: "Interest-Free Loans",
-    desc: "Short-term loans available to landlords, recovered directly from rent at zero interest.",
+    title: "M-Pesa First",
+    desc: "Rent collected via M-Pesa and bank transfer, with instant confirmation sent to you and your tenant.",
   },
   {
     icon: Building2,
@@ -23,7 +23,7 @@ const trustSignals = [
   {
     icon: Users,
     title: "Built for Kenya",
-    desc: "M-Pesa integration, local compliance, and support for Kenyan property management practices.",
+    desc: "Local compliance, Landlord and Tenant Act expertise, and support built around Kenyan property practices.",
   },
 ];
 

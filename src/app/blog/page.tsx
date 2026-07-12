@@ -35,7 +35,7 @@ const posts = [
   },
   {
     id: 5,
-    title: "Westlands vs Kilimani vs Lavington: where to invest in 2025",
+    title: "Westlands vs Kilimani vs Lavington: where to invest in 2026",
     category: "Market Insights",
     readTime: "8 min read",
     excerpt:
