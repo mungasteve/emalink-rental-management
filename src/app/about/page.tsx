@@ -8,7 +8,8 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero */}
-      <div className="bg-navy-800 py-16 sm:py-20">
+      <div className="relative bg-navy-800 py-16 sm:py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('/images/maria-ziegler-jJnZg7vBfMs-unsplash.jpg')" }} />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -52,11 +53,8 @@ export default function AboutPage() {
             className="bg-white rounded-2xl p-8 elevation-card"
           >
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="bg-gradient-to-br from-navy-900 to-navy-800 rounded-xl h-80 flex items-center justify-center">
-                <div className="text-center">
-                  <Users className="w-16 h-16 text-gold-400 mx-auto mb-4" />
-                  <p className="text-white/60 text-sm">Founder Photo</p>
-                </div>
+              <div className="rounded-xl h-80 overflow-hidden">
+                <img src="/images/clay-banks-urH155LONWs-unsplash.jpg" alt="Emalink office" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="font-[var(--font-heading)] text-2xl font-bold text-navy-800 mb-4">
@@ -72,15 +70,15 @@ export default function AboutPage() {
                   <div className="flex items-start gap-3">
                     <Award className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-navy-800">500+ Units Managed</p>
-                      <p className="text-navy-600 text-sm">Across Kenya</p>
+                      <p className="font-semibold text-navy-800">Nairobi-Based Team</p>
+                      <p className="text-navy-600 text-sm">Managing properties across Kenya</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Target className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-navy-800">10 Dedicated Professionals</p>
-                      <p className="text-navy-600 text-sm">Supporting property owners</p>
+                      <p className="font-semibold text-navy-800">Dedicated Professionals</p>
+                      <p className="text-navy-600 text-sm">Supporting property owners daily</p>
                     </div>
                   </div>
                 </div>
@@ -103,7 +101,7 @@ export default function AboutPage() {
               Our Team
             </h2>
             <p className="text-navy-600 text-lg max-w-2xl mx-auto">
-              10 dedicated professionals committed to making property management easier.
+              A dedicated team committed to making property management easier.
             </p>
           </motion.div>
 

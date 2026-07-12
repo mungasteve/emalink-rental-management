@@ -25,7 +25,7 @@ export function Hero() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=1600&q=80')",
+            "url('/images/brian-marete-V3YD8ACd0s0-unsplash.jpg')",
         }}
       />
       {/* Dark overlay for readability */}
