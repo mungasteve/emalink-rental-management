@@ -59,11 +59,11 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl font-bold text-white mb-3 sm:mb-4">
+          <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-white mb-2">
             Why Emalink
           </h2>
-          <p className="text-white/60 text-base sm:text-lg max-w-xl mx-auto">
-            A trusted partner for property owners across Kenya.
+          <p className="text-white/60 text-sm sm:text-base max-w-xl mx-auto">
+            Four things that set us apart from every other property manager in Nairobi.
           </p>
         </motion.div>
 

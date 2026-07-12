@@ -5,39 +5,39 @@ import { LinkButton } from "@/components/ui/link-button";
 
 export function ContactCTA() {
   return (
-    <section className="section-padding bg-gold-500">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="section-padding bg-cream-50">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="grid sm:grid-cols-2 gap-6 sm:gap-8 items-center"
+          className="bg-white border border-border rounded-2xl p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
         >
-          <div>
-            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-navy-800 mb-3 sm:mb-4">
+          <div className="max-w-sm">
+            <h2 className="font-[var(--font-heading)] text-2xl sm:text-3xl font-bold text-navy-800 mb-2">
               Ready to get started?
             </h2>
-            <p className="text-navy-800/70 text-base sm:text-lg leading-relaxed">
+            <p className="text-navy-600 text-sm leading-relaxed">
               Schedule a demo to see how Emalink can help you manage your properties more efficiently.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <LinkButton
               href="/contact"
               size="lg"
-              variant="default"
-              className="px-6 sm:px-8 w-full sm:w-auto justify-center"
+              variant="gold"
+              className="px-6 w-full sm:w-auto justify-center"
             >
               Schedule Demo
             </LinkButton>
             <LinkButton
-              href="/product"
+              href="/properties"
               size="lg"
               variant="outline"
-              className="border-navy-800 text-navy-800 hover:bg-navy-800 hover:text-white px-6 sm:px-8 w-full sm:w-auto justify-center"
+              className="px-6 w-full sm:w-auto justify-center"
             >
-              Learn More
+              Browse Properties
             </LinkButton>
           </div>
         </motion.div>

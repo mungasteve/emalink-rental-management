@@ -124,14 +124,14 @@ export function Services() {
         >
           <div className="inline-block mb-4">
             <span className="text-gold-400 font-semibold text-xs uppercase tracking-[0.2em] bg-gold-500/10 px-4 py-2 rounded-full">
-              What We Handle
+              Huduma Kamili — Complete Service
             </span>
           </div>
-          <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl font-bold text-navy-800 mb-4 leading-tight">
-            Complete property management.
+          <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-navy-800 mb-3 leading-tight">
+            Everything a Nairobi landlord needs.
           </h2>
-          <p className="text-navy-600 text-lg sm:text-xl leading-relaxed">
-            From tenant screening to rent collection to maintenance coordination. Everything between you and your tenants. We handle the work, you stay informed.
+          <p className="text-navy-600 text-base sm:text-lg leading-relaxed">
+            Tenant screening, M-Pesa rent collection, maintenance coordination, and legal compliance — all under one roof.
           </p>
         </motion.div>
 
