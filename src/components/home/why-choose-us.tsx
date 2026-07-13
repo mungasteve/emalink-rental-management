@@ -1,101 +1,93 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { LinkButton } from "@/components/ui/link-button";
+
+const columns = [
+  {
+    heading: "10% flat fee",
+    points: ["No hidden charges", "You approve costs above KES 10,000", "Nothing deducted without a statement"],
+  },
+  {
+    heading: "M-Pesa first",
+    points: ["Instant confirmation to you and tenant", "Bank transfer also accepted", "No more chasing rent"],
+  },
+  {
+    heading: "Kenyan law",
+    points: ["Landlord and Tenant Act compliance", "Leases we draft and stand behind", "Evictions handled correctly"],
+  },
+];
 
 export function WhyChooseUs() {
   return (
-    <section className="section-padding bg-navy-800">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-navy-800 py-16 sm:py-24">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+
+        {/* Pull quote */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="mb-14 sm:mb-16 max-w-3xl"
         >
-          {/* Header */}
-          <div className="mb-12 sm:mb-16">
-            <p className="text-gold-300 font-semibold text-sm uppercase tracking-[0.15em] mb-4">
-              Why Emalink
-            </p>
-            <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Property management that actually manages.
-            </h2>
-          </div>
-
-          {/* Main Content */}
-          <div className="space-y-8">
-            {/* Intro Paragraph */}
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-white/70 text-lg leading-relaxed"
-            >
-              Most landlords in Kenya manage their own properties because they don't trust anyone else to. We're building Emalink to change that — one property at a time. Our approach is fundamentally different because we understand that property management isn't just about collecting rent. It's about building trust, maintaining transparency, and delivering results that matter.
-            </motion.p>
-
-            {/* Key Points Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6 pt-4"
-            >
-              {/* Point 1 */}
-              <div className="border-l-2 border-gold-500 pl-6">
-                <h3 className="font-semibold text-white text-xl mb-2">
-                  We don't disappear after signing
-                </h3>
-                <p className="text-white/60 leading-relaxed">
-                  A dedicated manager is assigned to your property from day one. You have their direct line — not a support ticket queue that gets lost in the system. Your manager knows your property, understands your goals, and is accountable for results. They're your single point of contact for everything, ensuring nothing falls through the cracks.
-                </p>
-              </div>
-
-              {/* Point 2 */}
-              <div className="border-l-2 border-gold-500 pl-6">
-                <h3 className="font-semibold text-white text-xl mb-2">
-                  You see every shilling
-                </h3>
-                <p className="text-white/60 leading-relaxed">
-                  Monthly statements break down exactly what happened with your property. Rent collected, expenses paid, maintenance costs, and what lands in your account. No surprises, no hidden fees, no guesswork. You get detailed itemized reports showing every transaction, so you always know where your money is and how it's being managed.
-                </p>
-              </div>
-
-              {/* Point 3 */}
-              <div className="border-l-2 border-gold-500 pl-6">
-                <h3 className="font-semibold text-white text-xl mb-2">
-                  Maintenance doesn't stall
-                </h3>
-                <p className="text-white/60 leading-relaxed">
-                  Issues get logged immediately, assigned to vetted contractors, and tracked to completion. You're notified at each step — not after the fact. Emergency repairs are handled 24/7 to minimize tenant disruption and property damage. For costs above KES 10,000, you approve before we proceed. This means your property stays in top condition and your tenants stay satisfied.
-                </p>
-              </div>
-
-              {/* Point 4 */}
-              <div className="border-l-2 border-gold-500 pl-6">
-                <h3 className="font-semibold text-white text-xl mb-2">
-                  Compliant from day one
-                </h3>
-                <p className="text-white/60 leading-relaxed">
-                  Leases, notices, and eviction procedures follow Kenyan law. We keep you protected without you needing to know the Landlord-Tenant Act inside and out. Our legal expertise ensures proper documentation, protects you from costly disputes, and keeps everything above board. You can focus on growing your portfolio while we handle the legal complexity.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Closing Statement */}
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-white/70 text-lg leading-relaxed pt-4 border-t border-white/10"
-            >
-              Ready to move forward? Schedule a demo to see how Emalink works in practice.
-            </motion.p>
-          </div>
+          <p className="text-gold-400 font-semibold text-xs uppercase tracking-[0.2em] mb-6">
+            Why Emalink
+          </p>
+          <p className="font-[var(--font-heading)] text-2xl sm:text-3xl lg:text-4xl text-white leading-snug mb-5">
+            Most landlords in Nairobi manage their own properties because handing your rent roll to a stranger is worse than the hassle.
+          </p>
+          <p className="text-white/50 text-base sm:text-lg leading-relaxed">
+            We exist because that shouldn't be the choice.
+          </p>
         </motion.div>
+
+        {/* Divider */}
+        <div className="border-t border-white/10 mb-12" />
+
+        {/* 3-column fact grid */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+          className="grid sm:grid-cols-3 gap-8 sm:gap-12 mb-14"
+        >
+          {columns.map((col) => (
+            <motion.div
+              key={col.heading}
+              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+            >
+              <p className="text-white font-semibold text-base mb-4 pb-3 border-b border-white/10">
+                {col.heading}
+              </p>
+              <ul className="space-y-2.5">
+                {col.points.map((pt) => (
+                  <li key={pt} className="text-white/50 text-sm leading-relaxed">
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4 border-t border-white/10"
+        >
+          <p className="text-white/40 text-sm flex-1">
+            We are onboarding our first landlords now — direct access to the founder, no middlemen.
+          </p>
+          <LinkButton href="/contact" variant="gold" size="sm" className="shrink-0">
+            Get in touch
+          </LinkButton>
+        </motion.div>
+
       </div>
     </section>
   );
