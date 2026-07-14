@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { MapPin, Bed, Bath, Search, ArrowUpRight } from "lucide-react";
@@ -29,6 +29,14 @@ interface Property {
 }
 
 export default function PropertiesPage() {
+  return (
+    <Suspense>
+      <PropertiesContent />
+    </Suspense>
+  );
+}
+
+function PropertiesContent() {
   const searchParams = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("location") || "");
   const [type, setType] = useState("all");
