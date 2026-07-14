@@ -1,12 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const neighborhoods = [
-  "Westlands", "Kilimani", "Karen", "Lavington",
-  "South B", "South C", "Langata", "Kileleshwa",
-  "Upperhill", "Parklands",
-];
-
 const services = [
   { href: "/services", label: "Tenant Screening" },
   { href: "/services", label: "Rent Collection" },
@@ -18,7 +12,6 @@ const services = [
 const company = [
   { href: "/about", label: "About" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/blog", label: "Market Insights" },
   { href: "/contact", label: "Contact" },
   { href: "/properties", label: "Properties" },
 ];
@@ -32,32 +25,18 @@ export function Footer() {
   return (
     <footer className="bg-navy-800 text-white">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:py-14 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-4 lg:col-span-1">
             <Link href="/" className="inline-block mb-3">
               <Image src="/logo.png" alt="Emalink" width={80} height={80} className="h-10 w-auto brightness-200" />
             </Link>
             <p className="text-xs text-white/50 leading-relaxed mb-2">
-              Property management for landlords in Nairobi. Rent collection, maintenance, tenant screening — handled.
+              Property management for landlords in Nairobi.
             </p>
             <a href="mailto:info@emalink.co.ke" className="text-xs text-white/50 hover:text-white transition-colors">
               info@emalink.co.ke
             </a>
-          </div>
-
-          {/* Neighborhoods */}
-          <div>
-            <p className="text-[11px] font-medium text-white/80 uppercase tracking-[0.2em] mb-4">Neighborhoods</p>
-            <ul className="space-y-1.5">
-              {neighborhoods.slice(0, 6).map((n) => (
-                <li key={n}>
-                  <Link href={`/properties?location=${n}`} className="text-xs text-white/50 hover:text-white transition-colors">
-                    {n}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Services */}
@@ -95,7 +74,6 @@ export function Footer() {
               <li><Link href="/owner" className="text-xs text-white/50 hover:text-white transition-colors">Owner Portal</Link></li>
               <li><Link href="/tenant" className="text-xs text-white/50 hover:text-white transition-colors">Tenant Portal</Link></li>
               <li><Link href="/login" className="text-xs text-white/50 hover:text-white transition-colors">Sign In</Link></li>
-              <li><Link href="/register" className="text-xs text-white/50 hover:text-white transition-colors">Register</Link></li>
             </ul>
           </div>
         </div>
