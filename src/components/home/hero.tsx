@@ -52,7 +52,7 @@ export function Hero() {
             variants={itemVariants}
             className="font-[var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.2] mb-4"
           >
-            Property management
+            Property management{" "}
             <span className="block text-gold-400">done right.</span>
           </motion.h1>
 

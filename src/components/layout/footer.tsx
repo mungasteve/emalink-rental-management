@@ -87,8 +87,9 @@ export function Footer() {
               © {new Date().getFullYear()} Emalink Property Management. All rights reserved.
             </p>
             <div className="flex gap-6 text-xs text-white/50">
-              <span title="Coming soon">Privacy</span>
-              <span title="Coming soon">Terms</span>
+              <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+              <span className="text-white/20">·</span>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
             </div>
           </div>
         </div>

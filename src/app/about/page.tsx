@@ -20,10 +20,10 @@ export default function AboutPage() {
               About Us
             </p>
             <h1 className="font-[var(--font-heading)] text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
-              Built by property managers, for property managers.
+              Built by a property manager, for property owners.
             </h1>
             <p className="text-white/70 text-lg max-w-2xl">
-              Emalink was founded to solve the real problems property owners face in Kenya. We have been managing properties ourselves, so we know what works.
+              Most landlords in Kenya manage their own properties because the alternative is worse than the hassle. Emalink exists because that shouldn&apos;t be the only choice.
             </p>
           </motion.div>
         </div>
@@ -42,7 +42,7 @@ export default function AboutPage() {
               Founded by E.O Masara
             </h2>
             <p className="text-navy-600 text-lg max-w-2xl">
-              With years of experience managing properties across Kenya, E.O Masara founded Emalink to bring professional property management tools to every landlord.
+              E.O Masara founded Emalink after managing rental properties in Nairobi and seeing firsthand where the process breaks down for landlords.
             </p>
           </motion.div>
 
@@ -54,17 +54,17 @@ export default function AboutPage() {
           >
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="rounded-xl h-80 overflow-hidden">
-                <img src="/images/clay-banks-urH155LONWs-unsplash.jpg" alt="Emalink office" className="w-full h-full object-cover" />
+                <img src="/images/clay-banks-urH155LONWs-unsplash.jpg" alt="Residential apartments in Nairobi" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="font-[var(--font-heading)] text-2xl font-bold text-navy-800 mb-4">
                   E.O Masara
                 </h3>
                 <p className="text-navy-600 text-sm leading-relaxed mb-4">
-                  E.O Masara founded Emalink after years of managing properties in Nairobi. Working directly with landlords, tenants, and maintenance teams gave him a clear view of where the process breaks down — and what a better system would look like.
+                  Working directly with landlords, tenants, and maintenance teams gave him a clear view of where the process breaks down — and what a better system would look like.
                 </p>
                 <p className="text-navy-600 text-sm leading-relaxed">
-                  Emalink is built on that experience: transparent fees, clear communication, and no surprises for landlords or tenants.
+                  Emalink is built on that experience: a flat 10% fee, monthly statements showing every shilling, and a named manager you can actually reach.
                 </p>
               </div>
             </div>

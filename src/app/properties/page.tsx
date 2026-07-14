@@ -184,7 +184,18 @@ export default function PropertiesPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         {loading ? (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">Loading properties...</p>
+            <div className="animate-pulse space-y-2">
+              <div className="h-4 w-32 bg-cream-200 rounded mx-auto" />
+              <div className="h-3 w-48 bg-cream-100 rounded mx-auto" />
+            </div>
+          </div>
+        ) : filtered.length === 0 ? (
+          <div className="text-center py-16">
+            <p className="text-navy-800 font-semibold text-lg mb-2">No properties listed yet</p>
+            <p className="text-muted-foreground text-sm mb-6 max-w-md mx-auto">
+              We are onboarding our first properties now. Leave your details and we will notify you when listings go live.
+            </p>
+            <LinkButton href="/contact" variant="gold" size="sm">Get Notified</LinkButton>
           </div>
         ) : (
           <>
