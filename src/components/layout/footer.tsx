@@ -48,7 +48,7 @@ export function Footer() {
 
           {/* Neighborhoods */}
           <div>
-            <p className="text-[11px] font-semibold text-white/80 uppercase tracking-wider mb-3">Neighborhoods</p>
+            <p className="text-[11px] font-medium text-white/80 uppercase tracking-[0.2em] mb-4">Neighborhoods</p>
             <ul className="space-y-1.5">
               {neighborhoods.slice(0, 6).map((n) => (
                 <li key={n}>
@@ -62,7 +62,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <p className="text-[11px] font-semibold text-white/80 uppercase tracking-wider mb-3">Services</p>
+            <p className="text-[11px] font-medium text-white/80 uppercase tracking-[0.2em] mb-4">Services</p>
             <ul className="space-y-1.5">
               {services.map((s) => (
                 <li key={s.label}>
@@ -76,7 +76,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <p className="text-[11px] font-semibold text-white/80 uppercase tracking-wider mb-3">Company</p>
+            <p className="text-[11px] font-medium text-white/80 uppercase tracking-[0.2em] mb-4">Company</p>
             <ul className="space-y-1.5">
               {company.map((c) => (
                 <li key={c.label}>
@@ -90,7 +90,7 @@ export function Footer() {
 
           {/* Portals */}
           <div>
-            <p className="text-[11px] font-semibold text-white/80 uppercase tracking-wider mb-3">Portals</p>
+            <p className="text-[11px] font-medium text-white/80 uppercase tracking-[0.2em] mb-4">Portals</p>
             <ul className="space-y-1.5">
               <li><Link href="/owner" className="text-xs text-white/50 hover:text-white transition-colors">Owner Portal</Link></li>
               <li><Link href="/tenant" className="text-xs text-white/50 hover:text-white transition-colors">Tenant Portal</Link></li>

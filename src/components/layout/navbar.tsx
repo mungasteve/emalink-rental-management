@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/properties", label: "Properties" },
   { href: "/services", label: "Services" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/blog", label: "Market Insights" },
+  { href: "/blog", label: "Insights" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -25,20 +25,20 @@ export function Navbar() {
     : session?.user?.role === "TENANT" ? "/tenant" : "/login";
 
   return (
-    <header className="sticky top-0 z-[100] w-full bg-white border-b border-border">
-      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-[100] w-full bg-navy-800">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
-          <Image src="/logo.png" alt="Emalink" width={100} height={100} className="h-10 w-auto" priority />
+          <Image src="/logo.png" alt="Emalink" width={100} height={100} className="h-12 w-auto brightness-200" priority />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6 ml-8" aria-label="Main navigation">
+        <nav className="hidden lg:flex items-center gap-8 ml-auto mr-8" aria-label="Main navigation">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-[13px] font-medium text-navy-700 hover:text-navy-900 transition-colors"
+              className="text-[11px] font-medium text-white/70 hover:text-white uppercase tracking-[0.15em] transition-colors"
             >
               {link.label}
             </Link>
@@ -46,36 +46,29 @@ export function Navbar() {
         </nav>
 
         {/* Desktop Right */}
-        <div className="hidden lg:flex items-center gap-3 ml-auto">
+        <div className="hidden lg:flex items-center gap-3">
           {session ? (
             <div className="flex items-center gap-3">
-              <Link href={portalHref} className="text-[13px] font-medium text-navy-700 hover:text-navy-900 flex items-center gap-1.5">
+              <Link href={portalHref} className="text-[11px] font-medium text-white/70 hover:text-white uppercase tracking-[0.1em] flex items-center gap-1.5 transition-colors">
                 <User className="h-3.5 w-3.5" />
                 {session.user?.name?.split(" ")[0]}
               </Link>
-              <Button variant="outline" size="sm" className="text-xs h-8" onClick={() => signOut({ callbackUrl: "/" })}>
+              <Button variant="outline" size="sm" className="text-[10px] h-7 border-white/20 text-white hover:bg-white/10 uppercase tracking-wider" onClick={() => signOut({ callbackUrl: "/" })}>
                 <LogOut className="h-3 w-3 mr-1" /> Logout
               </Button>
             </div>
           ) : (
-            <div className="flex items-center gap-2">
-              <Link href="/login">
-                <Button variant="outline" size="sm" className="text-xs h-8">
-                  <LogIn className="h-3 w-3 mr-1" /> Sign In
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button variant="gold" size="sm" className="text-xs h-8">
-                  List Property
-                </Button>
-              </Link>
-            </div>
+            <Link href="/login">
+              <Button variant="outline" size="sm" className="text-[10px] h-7 border-white/20 text-white hover:bg-white/10 uppercase tracking-wider">
+                <LogIn className="h-3 w-3 mr-1" /> Sign In
+              </Button>
+            </Link>
           )}
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden h-9 w-9 flex items-center justify-center rounded-md hover:bg-cream-100 transition-colors"
+          className="lg:hidden h-9 w-9 flex items-center justify-center rounded-md text-white/70 hover:text-white transition-colors"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -85,42 +78,33 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden border-t border-border bg-white px-4 py-4">
+        <div className="lg:hidden border-t border-white/10 bg-navy-800 px-4 py-4">
           <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="px-3 py-2.5 text-sm font-medium text-navy-800 hover:bg-cream-50 rounded-md transition-colors"
+                className="px-3 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-md transition-colors"
               >
                 {link.label}
               </Link>
             ))}
             {session && (
-              <Link
-                href={portalHref}
-                onClick={() => setOpen(false)}
-                className="px-3 py-2.5 text-sm font-medium text-navy-800 hover:bg-cream-50 rounded-md transition-colors"
-              >
+              <Link href={portalHref} onClick={() => setOpen(false)} className="px-3 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-md transition-colors">
                 My Portal
               </Link>
             )}
           </nav>
-          <div className="border-t border-border mt-3 pt-3 flex gap-2">
+          <div className="border-t border-white/10 mt-3 pt-3">
             {session ? (
-              <Button variant="outline" size="sm" className="text-xs flex-1" onClick={() => { signOut({ callbackUrl: "/" }); setOpen(false); }}>
+              <button onClick={() => { signOut({ callbackUrl: "/" }); setOpen(false); }} className="w-full text-left px-3 py-2.5 text-sm text-white/70 hover:text-white">
                 Sign Out
-              </Button>
+              </button>
             ) : (
-              <>
-                <Link href="/login" onClick={() => setOpen(false)} className="flex-1">
-                  <Button variant="outline" size="sm" className="text-xs w-full">Sign In</Button>
-                </Link>
-                <Link href="/contact" onClick={() => setOpen(false)} className="flex-1">
-                  <Button variant="gold" size="sm" className="text-xs w-full">List Property</Button>
-                </Link>
-              </>
+              <Link href="/login" onClick={() => setOpen(false)} className="block px-3 py-2.5 text-sm text-white/70 hover:text-white">
+                Sign In
+              </Link>
             )}
           </div>
         </div>
