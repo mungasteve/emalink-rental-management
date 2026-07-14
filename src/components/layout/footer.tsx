@@ -1,96 +1,116 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
 
-const footerLinks = {
-  company: [
-    { href: "/about", label: "About Us" },
-    { href: "/properties", label: "Properties" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
-  ],
-  resources: [
-    { href: "/pricing", label: "Pricing" },
-  ],
-  portals: [
-    { href: "/tenant", label: "Tenant Portal" },
-    { href: "/owner", label: "Owner Portal" },
-  ],
-};
+const neighborhoods = [
+  "Westlands", "Kilimani", "Karen", "Lavington",
+  "South B", "South C", "Langata", "Kileleshwa",
+  "Upperhill", "Parklands",
+];
+
+const services = [
+  { href: "/services", label: "Tenant Screening" },
+  { href: "/services", label: "Rent Collection" },
+  { href: "/services", label: "Maintenance" },
+  { href: "/services", label: "Legal & Compliance" },
+  { href: "/services", label: "Vacancy Marketing" },
+];
+
+const company = [
+  { href: "/about", label: "About" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/blog", label: "Market Insights" },
+  { href: "/contact", label: "Contact" },
+  { href: "/properties", label: "Properties" },
+];
+
+const legal = [
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Service" },
+];
 
 export function Footer() {
   return (
     <footer className="bg-navy-800 text-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:py-16 lg:py-20 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:py-14 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-8">
           {/* Brand */}
-          <div>
-            <Link href="/" className="inline-block mb-4">
-              <Image src="/logo.png" alt="Emalink" width={120} height={120} className="h-16 w-auto" />
+          <div className="col-span-2 sm:col-span-4 lg:col-span-1">
+            <Link href="/" className="inline-block mb-3">
+              <Image src="/logo.png" alt="Emalink" width={80} height={80} className="h-10 w-auto brightness-200" />
             </Link>
-            <p className="text-sm text-white/60 mb-4 leading-relaxed">
-              Professional property management services. We grow together with property owners across Kenya.
+            <p className="text-xs text-white/50 leading-relaxed mb-2">
+              Property management for landlords in Nairobi. Rent collection, maintenance, tenant screening — handled.
             </p>
-            <p className="text-gold-400 font-semibold text-sm italic">We Grow Together</p>
+            <a href="mailto:info@emalink.co.ke" className="text-xs text-white/50 hover:text-white transition-colors">
+              info@emalink.co.ke
+            </a>
+          </div>
+
+          {/* Neighborhoods */}
+          <div>
+            <p className="text-[11px] font-semibold text-white/80 uppercase tracking-wider mb-3">Neighborhoods</p>
+            <ul className="space-y-1.5">
+              {neighborhoods.slice(0, 6).map((n) => (
+                <li key={n}>
+                  <Link href={`/properties?location=${n}`} className="text-xs text-white/50 hover:text-white transition-colors">
+                    {n}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <p className="text-[11px] font-semibold text-white/80 uppercase tracking-wider mb-3">Services</p>
+            <ul className="space-y-1.5">
+              {services.map((s) => (
+                <li key={s.label}>
+                  <Link href={s.href} className="text-xs text-white/50 hover:text-white transition-colors">
+                    {s.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-4">Company</h3>
-            <ul className="space-y-2.5">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-white/60 hover:text-white transition-colors duration-200">
-                    {link.label}
+            <p className="text-[11px] font-semibold text-white/80 uppercase tracking-wider mb-3">Company</p>
+            <ul className="space-y-1.5">
+              {company.map((c) => (
+                <li key={c.label}>
+                  <Link href={c.href} className="text-xs text-white/50 hover:text-white transition-colors">
+                    {c.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Portals */}
           <div>
-            <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-4">Resources</h3>
-            <ul className="space-y-2.5">
-              {footerLinks.resources.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-white/60 hover:text-white transition-colors duration-200">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-4">Contact</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2.5 text-sm text-white/60">
-                <Mail className="h-4 w-4 text-gold-400 flex-shrink-0" />
-                <a href="mailto:info@emalink.co.ke" className="hover:text-white transition-colors duration-200">
-                  info@emalink.co.ke
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5 text-sm text-white/60">
-                <MapPin className="h-4 w-4 text-gold-400 flex-shrink-0" />
-                Nairobi, Kenya
-              </li>
+            <p className="text-[11px] font-semibold text-white/80 uppercase tracking-wider mb-3">Portals</p>
+            <ul className="space-y-1.5">
+              <li><Link href="/owner" className="text-xs text-white/50 hover:text-white transition-colors">Owner Portal</Link></li>
+              <li><Link href="/tenant" className="text-xs text-white/50 hover:text-white transition-colors">Tenant Portal</Link></li>
+              <li><Link href="/login" className="text-xs text-white/50 hover:text-white transition-colors">Sign In</Link></li>
+              <li><Link href="/register" className="text-xs text-white/50 hover:text-white transition-colors">Register</Link></li>
             </ul>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="mt-12 sm:mt-16 border-t border-white/10 pt-8 sm:pt-10">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-white/50">
-              © {new Date().getFullYear()} Emalink Property Management. All rights reserved.
-            </p>
-            <div className="flex gap-6 text-xs text-white/50">
-              <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-              <span className="text-white/20">·</span>
-              <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
-            </div>
+        {/* Bottom */}
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+          <p className="text-[11px] text-white/40">
+            © {new Date().getFullYear()} Emalink Property Management · Nairobi, Kenya
+          </p>
+          <div className="flex gap-4">
+            {legal.map((l) => (
+              <Link key={l.href} href={l.href} className="text-[11px] text-white/40 hover:text-white/70 transition-colors">
+                {l.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

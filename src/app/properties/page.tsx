@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { MapPin, Bed, Bath, Search, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -28,7 +29,8 @@ interface Property {
 }
 
 export default function PropertiesPage() {
-  const [search, setSearch] = useState("");
+  const searchParams = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("location") || "");
   const [type, setType] = useState("all");
   const [bedrooms, setBedrooms] = useState("all");
   const [minPrice, setMinPrice] = useState(0);
