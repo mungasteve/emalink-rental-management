@@ -79,7 +79,7 @@ export default function RegisterPage() {
       {/* Right — form panel */}
       <div className="flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-16 bg-cream-50">
         <Link href="/" className="flex items-center gap-2 mb-10 lg:hidden">
-          <Image src="/logo.png" alt="Emalink" width={80} height={80} className="h-14 w-auto" />
+          <Image src="/logo.png" alt="Emalink" width={120} height={120} className="h-20 w-auto" />
         </Link>
 
         <motion.div
@@ -120,19 +120,19 @@ export default function RegisterPage() {
                   <label htmlFor="name" className="text-sm font-medium text-navy-800 mb-1.5 block">
                     Full Name
                   </label>
-                  <Input id="name" name="name" placeholder="Jane Mwangi" required autoComplete="name" className="bg-white" />
+                  <Input id="name" name="name" required autoComplete="name" className="bg-white" />
                 </div>
                 <div>
                   <label htmlFor="email" className="text-sm font-medium text-navy-800 mb-1.5 block">
                     Email address
                   </label>
-                  <Input id="email" name="email" type="email" placeholder="jane@example.com" required autoComplete="email" className="bg-white" />
+                  <Input id="email" name="email" type="email" required autoComplete="email" className="bg-white" />
                 </div>
                 <div>
                   <label htmlFor="phone" className="text-sm font-medium text-navy-800 mb-1.5 block">
                     Phone <span className="text-muted-foreground font-normal">(optional)</span>
                   </label>
-                  <Input id="phone" name="phone" type="tel" placeholder="+254 7XX XXX XXX" autoComplete="tel" className="bg-white" />
+                  <Input id="phone" name="phone" type="tel" autoComplete="tel" className="bg-white" />
                 </div>
                 <div>
                   <label htmlFor="password" className="text-sm font-medium text-navy-800 mb-1.5 block">
@@ -143,7 +143,7 @@ export default function RegisterPage() {
                       id="password"
                       name="password"
                       type={showPassword ? "text" : "password"}
-                      placeholder="Min. 8 chars, 1 uppercase, 1 number"
+                      placeholder="Min. 8 characters"
                       required
                       autoComplete="new-password"
                       className="bg-white"

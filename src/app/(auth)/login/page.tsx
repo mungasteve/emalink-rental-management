@@ -102,7 +102,7 @@ export default function LoginPage() {
       <div className="flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-16 bg-cream-50">
         {/* Mobile logo */}
         <Link href="/" className="flex items-center gap-2 mb-10 lg:hidden">
-          <Image src="/logo.png" alt="Emalink" width={80} height={80} className="h-14 w-auto" />
+          <Image src="/logo.png" alt="Emalink" width={120} height={120} className="h-20 w-auto" />
         </Link>
 
         <motion.div
@@ -134,7 +134,7 @@ export default function LoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
+
                 required
                 autoComplete="email"
                 className="bg-white"
@@ -156,7 +156,7 @@ export default function LoginPage() {
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
+
                   required
                   autoComplete="current-password"
                   className="bg-white"
