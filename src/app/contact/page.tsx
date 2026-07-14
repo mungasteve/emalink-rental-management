@@ -131,7 +131,6 @@ export default function ContactPage() {
                     </label>
                     <Input
                       name="name"
-                      placeholder="Wanjiru Kamau"
                       aria-invalid={!!errors.name}
                       className={errors.name ? "border-red-500" : ""}
                     />
@@ -145,7 +144,6 @@ export default function ContactPage() {
                     </label>
                     <Input
                       name="email"
-                      placeholder="wanjiru@email.co.ke"
                       type="email"
                       aria-invalid={!!errors.email}
                       className={errors.email ? "border-red-500" : ""}
@@ -163,7 +161,6 @@ export default function ContactPage() {
                     </label>
                     <Input
                       name="phone"
-                      placeholder="+254 7XX XXX XXX"
                       type="tel"
                     />
                   </div>

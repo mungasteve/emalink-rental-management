@@ -40,13 +40,6 @@ export function Hero() {
           animate="visible"
           className="max-w-2xl"
         >
-          {/* Location tag */}
-          <motion.div variants={itemVariants} className="mb-4">
-            <span className="text-gold-400 font-semibold text-xs uppercase tracking-widest">
-              Nairobi, Kenya
-            </span>
-          </motion.div>
-
           {/* Headline — serif for authority */}
           <motion.h1
             variants={itemVariants}
