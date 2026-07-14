@@ -5,14 +5,12 @@ import { useRouter } from "next/navigation";
 import { Plus, Trash2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import Link from "next/link";
 
 type Unit = { name: string; bedrooms: number; bathrooms: number; rent: string; deposit: string; size: string };
-
 const emptyUnit = (): Unit => ({ name: "", bedrooms: 0, bathrooms: 1, rent: "", deposit: "", size: "" });
 
 export default function AddPropertyPage() {
@@ -29,7 +27,6 @@ export default function AddPropertyPage() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-
     const form = new FormData(e.currentTarget);
 
     const payload = {
@@ -63,129 +60,114 @@ export default function AddPropertyPage() {
       return;
     }
 
-    toast.success("Property added", { description: `${data.property.title} is now live.` });
+    toast.success("Property added");
     router.push("/owner");
   }
 
   return (
-    <div>
-      <div className="bg-navy-800 py-10 sm:py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Link href="/owner" className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm mb-4 transition-colors">
-            <ArrowLeft className="h-4 w-4" /> Back to Portal
+    <div className="min-h-screen bg-cream-50">
+      <div className="bg-navy-800 px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+        <div className="mx-auto max-w-2xl">
+          <Link href="/owner" className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-xs mb-3 transition-colors">
+            <ArrowLeft className="h-3 w-3" /> Back
           </Link>
-          <h1 className="font-[var(--font-heading)] text-2xl sm:text-3xl font-bold text-white">Add Property</h1>
-          <p className="text-white/55 text-sm">List a new property on the platform</p>
+          <h1 className="text-lg sm:text-xl font-bold text-white">Add Property</h1>
         </div>
       </div>
 
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-8">
+      <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Property Details */}
-          <Card className="elevation-card">
-            <CardHeader><CardTitle className="text-base">Property Details</CardTitle></CardHeader>
-            <CardContent className="space-y-4">
+          <div className="bg-white rounded-lg border border-border p-4 sm:p-5 space-y-3">
+            <p className="text-xs font-semibold text-navy-800 uppercase tracking-wide mb-2">Property Details</p>
+            <div>
+              <label className="text-xs font-medium text-navy-800 mb-1 block">Title</label>
+              <Input name="title" required className="text-sm h-9" />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-sm font-medium text-navy-800 mb-1.5 block">Title</label>
-                <Input name="title" placeholder="e.g. Modern 2BR Apartment, Westlands" required />
-              </div>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-navy-800 mb-1.5 block">Type</label>
-                  <Select value={type} onValueChange={(v) => setType(v ?? "RESIDENTIAL")}>
-                    <SelectTrigger><SelectValue /></SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="RESIDENTIAL">Residential</SelectItem>
-                      <SelectItem value="COMMERCIAL">Commercial</SelectItem>
-                      <SelectItem value="INDUSTRIAL">Industrial</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-navy-800 mb-1.5 block">Location</label>
-                  <Input name="location" placeholder="e.g. Westlands, Nairobi" required />
-                </div>
+                <label className="text-xs font-medium text-navy-800 mb-1 block">Type</label>
+                <Select value={type} onValueChange={(v) => setType(v ?? "RESIDENTIAL")}>
+                  <SelectTrigger className="h-9 text-sm"><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="RESIDENTIAL">Residential</SelectItem>
+                    <SelectItem value="COMMERCIAL">Commercial</SelectItem>
+                    <SelectItem value="INDUSTRIAL">Industrial</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
               <div>
-                <label className="text-sm font-medium text-navy-800 mb-1.5 block">Full Address</label>
-                <Input name="address" placeholder="e.g. Rose Avenue, Westlands" required />
+                <label className="text-xs font-medium text-navy-800 mb-1 block">Location</label>
+                <Input name="location" required className="text-sm h-9" />
               </div>
-              <div>
-                <label className="text-sm font-medium text-navy-800 mb-1.5 block">Description</label>
-                <Textarea name="description" placeholder="Describe the property..." rows={3} />
-              </div>
-              <div>
-                <label className="text-sm font-medium text-navy-800 mb-1.5 block">
-                  Amenities <span className="text-muted-foreground font-normal">(comma separated)</span>
-                </label>
-                <Input
-                  value={amenities}
-                  onChange={(e) => setAmenities(e.target.value)}
-                  placeholder="Parking, Security, Backup Generator, Balcony"
-                />
-              </div>
-            </CardContent>
-          </Card>
+            </div>
+            <div>
+              <label className="text-xs font-medium text-navy-800 mb-1 block">Address</label>
+              <Input name="address" required className="text-sm h-9" />
+            </div>
+            <div>
+              <label className="text-xs font-medium text-navy-800 mb-1 block">Description</label>
+              <Textarea name="description" rows={2} className="text-sm" />
+            </div>
+            <div>
+              <label className="text-xs font-medium text-navy-800 mb-1 block">Amenities <span className="text-muted-foreground font-normal">(comma separated)</span></label>
+              <Input value={amenities} onChange={(e) => setAmenities(e.target.value)} className="text-sm h-9" />
+            </div>
+          </div>
 
           {/* Units */}
-          <Card className="elevation-card">
-            <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle className="text-base">Units</CardTitle>
-              <Button type="button" variant="outline" size="sm" onClick={() => setUnits((p) => [...p, emptyUnit()])}>
-                <Plus className="h-4 w-4 mr-1" /> Add Unit
+          <div className="bg-white rounded-lg border border-border p-4 sm:p-5">
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-xs font-semibold text-navy-800 uppercase tracking-wide">Units</p>
+              <Button type="button" variant="outline" size="sm" className="text-xs h-7" onClick={() => setUnits((p) => [...p, emptyUnit()])}>
+                <Plus className="h-3 w-3 mr-1" /> Add
               </Button>
-            </CardHeader>
-            <CardContent className="space-y-6">
+            </div>
+            <div className="space-y-4">
               {units.map((unit, i) => (
-                <div key={i} className="border border-border rounded-xl p-4 space-y-4 relative">
+                <div key={i} className="border border-border rounded-lg p-3 space-y-3">
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold text-navy-800">Unit {i + 1}</p>
+                    <p className="text-xs font-semibold text-navy-800">Unit {i + 1}</p>
                     {units.length > 1 && (
                       <button type="button" onClick={() => setUnits((p) => p.filter((_, idx) => idx !== i))}
-                        className="text-muted-foreground hover:text-destructive transition-colors">
-                        <Trash2 className="h-4 w-4" />
+                        className="text-muted-foreground hover:text-red-500 transition-colors">
+                        <Trash2 className="h-3.5 w-3.5" />
                       </button>
                     )}
                   </div>
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="text-xs font-medium text-navy-800 mb-1 block">Unit Name</label>
-                      <Input value={unit.name} onChange={(e) => updateUnit(i, "name", e.target.value)}
-                        placeholder="e.g. Unit A, Ground Floor" required />
+                      <label className="text-[10px] font-medium text-navy-800 mb-0.5 block">Name</label>
+                      <Input value={unit.name} onChange={(e) => updateUnit(i, "name", e.target.value)} required className="text-sm h-8" />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-navy-800 mb-1 block">Size (sqm)</label>
-                      <Input type="number" value={unit.size} onChange={(e) => updateUnit(i, "size", e.target.value)}
-                        placeholder="85" min="0" />
+                      <label className="text-[10px] font-medium text-navy-800 mb-0.5 block">Size (sqm)</label>
+                      <Input type="number" value={unit.size} onChange={(e) => updateUnit(i, "size", e.target.value)} min="0" className="text-sm h-8" />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-navy-800 mb-1 block">Bedrooms</label>
-                      <Input type="number" value={unit.bedrooms} onChange={(e) => updateUnit(i, "bedrooms", e.target.value)}
-                        min="0" required />
+                      <label className="text-[10px] font-medium text-navy-800 mb-0.5 block">Bedrooms</label>
+                      <Input type="number" value={unit.bedrooms} onChange={(e) => updateUnit(i, "bedrooms", e.target.value)} min="0" required className="text-sm h-8" />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-navy-800 mb-1 block">Bathrooms</label>
-                      <Input type="number" value={unit.bathrooms} onChange={(e) => updateUnit(i, "bathrooms", e.target.value)}
-                        min="1" required />
+                      <label className="text-[10px] font-medium text-navy-800 mb-0.5 block">Bathrooms</label>
+                      <Input type="number" value={unit.bathrooms} onChange={(e) => updateUnit(i, "bathrooms", e.target.value)} min="1" required className="text-sm h-8" />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-navy-800 mb-1 block">Monthly Rent (KES)</label>
-                      <Input type="number" value={unit.rent} onChange={(e) => updateUnit(i, "rent", e.target.value)}
-                        placeholder="45000" min="0" required />
+                      <label className="text-[10px] font-medium text-navy-800 mb-0.5 block">Rent (KES)</label>
+                      <Input type="number" value={unit.rent} onChange={(e) => updateUnit(i, "rent", e.target.value)} min="0" required className="text-sm h-8" />
                     </div>
                     <div>
-                      <label className="text-xs font-medium text-navy-800 mb-1 block">Deposit (KES)</label>
-                      <Input type="number" value={unit.deposit} onChange={(e) => updateUnit(i, "deposit", e.target.value)}
-                        placeholder="90000" min="0" required />
+                      <label className="text-[10px] font-medium text-navy-800 mb-0.5 block">Deposit (KES)</label>
+                      <Input type="number" value={unit.deposit} onChange={(e) => updateUnit(i, "deposit", e.target.value)} min="0" required className="text-sm h-8" />
                     </div>
                   </div>
                 </div>
               ))}
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
-          <Button type="submit" variant="gold" className="w-full h-11 text-sm font-semibold" disabled={loading}>
-            {loading ? "Adding property..." : "Add Property"}
+          <Button type="submit" variant="gold" className="w-full h-9 text-sm font-semibold" disabled={loading}>
+            {loading ? "Adding..." : "Add Property"}
           </Button>
         </form>
       </div>

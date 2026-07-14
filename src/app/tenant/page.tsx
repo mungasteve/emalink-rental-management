@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { DollarSign, FileText, Wrench, Bell, CreditCard, X, AlertCircle } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CreditCard, Wrench, X, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -80,59 +79,51 @@ function MaintenanceModal({
       return;
     }
 
-    toast.success("Request submitted", { description: "We'll assign a contractor shortly." });
+    toast.success("Request submitted");
     onSuccess();
     onClose();
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-      <Card className="w-full max-w-md elevation-card">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-base">New Maintenance Request</CardTitle>
-          <button onClick={onClose} className="text-muted-foreground hover:text-navy-800 transition-colors">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 px-0 sm:px-4">
+      <div className="w-full sm:max-w-md bg-white rounded-t-xl sm:rounded-xl p-5 sm:p-6">
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-sm font-semibold text-navy-800">New Maintenance Request</p>
+          <button onClick={onClose} className="text-muted-foreground hover:text-navy-800">
             <X className="h-4 w-4" />
           </button>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="text-sm font-medium text-navy-800 mb-1.5 block">Issue Title</label>
-              <Input name="title" placeholder="e.g. Leaking kitchen faucet" required minLength={5} />
-            </div>
-            <div>
-              <label className="text-sm font-medium text-navy-800 mb-1.5 block">Description</label>
-              <Textarea name="description" placeholder="Describe the issue in detail..." rows={3} required minLength={10} />
-            </div>
-            <div>
-              <label className="text-sm font-medium text-navy-800 mb-1.5 block">Priority</label>
-              <Select value={priority} onValueChange={(v) => setPriority(v ?? "MEDIUM")}>
-                <SelectTrigger><SelectValue /></SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="LOW">Low</SelectItem>
-                  <SelectItem value="MEDIUM">Medium</SelectItem>
-                  <SelectItem value="HIGH">High</SelectItem>
-                  <SelectItem value="EMERGENCY">Emergency</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <Button type="submit" variant="gold" className="w-full" disabled={loading}>
-              {loading ? "Submitting..." : "Submit Request"}
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <div>
+            <label className="text-xs font-medium text-navy-800 mb-1 block">Issue</label>
+            <Input name="title" required minLength={5} className="text-sm h-9" />
+          </div>
+          <div>
+            <label className="text-xs font-medium text-navy-800 mb-1 block">Description</label>
+            <Textarea name="description" rows={3} required minLength={10} className="text-sm" />
+          </div>
+          <div>
+            <label className="text-xs font-medium text-navy-800 mb-1 block">Priority</label>
+            <Select value={priority} onValueChange={(v) => setPriority(v ?? "MEDIUM")}>
+              <SelectTrigger className="h-9 text-sm"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="LOW">Low</SelectItem>
+                <SelectItem value="MEDIUM">Medium</SelectItem>
+                <SelectItem value="HIGH">High</SelectItem>
+                <SelectItem value="EMERGENCY">Emergency</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <Button type="submit" variant="gold" className="w-full h-9 text-sm" disabled={loading}>
+            {loading ? "Submitting..." : "Submit"}
+          </Button>
+        </form>
+      </div>
     </div>
   );
 }
 
-function PayModal({
-  lease,
-  onClose,
-}: {
-  lease: Lease;
-  onClose: () => void;
-}) {
+function PayModal({ lease, onClose }: { lease: Lease; onClose: () => void }) {
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -154,43 +145,36 @@ function PayModal({
       return;
     }
 
-    toast.success("STK push sent", { description: "Check your phone for the M-Pesa prompt." });
+    toast.success("STK push sent", { description: "Check your phone." });
     onClose();
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-      <Card className="w-full max-w-sm elevation-card">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-base">Pay Rent via M-Pesa</CardTitle>
-          <button onClick={onClose} className="text-muted-foreground hover:text-navy-800 transition-colors">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 px-0 sm:px-4">
+      <div className="w-full sm:max-w-sm bg-white rounded-t-xl sm:rounded-xl p-5 sm:p-6">
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-sm font-semibold text-navy-800">Pay Rent via M-Pesa</p>
+          <button onClick={onClose} className="text-muted-foreground hover:text-navy-800">
             <X className="h-4 w-4" />
           </button>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="bg-cream-50 rounded-lg p-4">
-            <p className="text-xs text-muted-foreground">Amount due</p>
-            <p className="text-2xl font-bold text-navy-800">{fmt(lease.rent)}</p>
-            <p className="text-xs text-muted-foreground mt-0.5">{lease.unit.property.title}</p>
-          </div>
-          <div>
-            <label className="text-sm font-medium text-navy-800 mb-1.5 block">M-Pesa Phone Number</label>
-            <Input
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="254 7XX XXX XXX"
-            />
-          </div>
-          <div className="flex items-start gap-2 text-xs text-muted-foreground bg-amber-50 p-3 rounded-lg">
-            <AlertCircle className="h-3.5 w-3.5 text-amber-600 shrink-0 mt-0.5" />
-            You will receive an M-Pesa prompt on your phone. Enter your PIN to complete payment.
-          </div>
-          <Button variant="gold" className="w-full" onClick={handlePay} disabled={loading}>
-            {loading ? "Sending prompt..." : "Send M-Pesa Prompt"}
-          </Button>
-        </CardContent>
-      </Card>
+        </div>
+        <div className="bg-cream-50 rounded-lg p-3 mb-4">
+          <p className="text-xs text-muted-foreground">Amount due</p>
+          <p className="text-xl font-bold text-navy-800">{fmt(lease.rent)}</p>
+          <p className="text-xs text-muted-foreground">{lease.unit.property.title}</p>
+        </div>
+        <div className="mb-3">
+          <label className="text-xs font-medium text-navy-800 mb-1 block">M-Pesa Number</label>
+          <Input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="text-sm h-9" />
+        </div>
+        <div className="flex items-start gap-2 text-[11px] text-muted-foreground bg-amber-50 p-2.5 rounded-lg mb-4">
+          <AlertCircle className="h-3 w-3 text-amber-600 shrink-0 mt-0.5" />
+          You&apos;ll receive an M-Pesa prompt. Enter your PIN to complete.
+        </div>
+        <Button variant="gold" className="w-full h-9 text-sm" onClick={handlePay} disabled={loading}>
+          {loading ? "Sending..." : "Send M-Pesa Prompt"}
+        </Button>
+      </div>
     </div>
   );
 }
@@ -230,18 +214,11 @@ export default function TenantPortal() {
 
   useEffect(() => { loadData(); }, []);
 
-  const activePayment = payments.find((p) => p.status === "PENDING");
   const openRequests = maintenance.filter((m) => m.status !== "COMPLETED").length;
-
-  const kpis = [
-    { icon: DollarSign, label: "Current Rent", value: lease ? fmt(lease.rent) : "—", sub: lease ? `Due 1st of month` : "No active lease" },
-    { icon: FileText, label: "Lease Status", value: lease?.status ?? "—", sub: lease ? `Expires ${new Date(lease.endDate).toLocaleDateString()}` : "" },
-    { icon: Wrench, label: "Open Requests", value: String(openRequests), sub: openRequests === 1 ? "1 in progress" : `${openRequests} active` },
-    { icon: Bell, label: "Pending Payments", value: activePayment ? "1" : "0", sub: activePayment ? fmt(activePayment.amount) : "All clear" },
-  ];
+  const pendingPayment = payments.find((p) => p.status === "PENDING");
 
   return (
-    <div>
+    <div className="min-h-screen bg-cream-50">
       {showMaintenance && lease && (
         <MaintenanceModal
           leasePropertyId={lease.unit.property.title}
@@ -253,140 +230,130 @@ export default function TenantPortal() {
         <PayModal lease={lease} onClose={() => setShowPay(false)} />
       )}
 
-      <div className="bg-navy-800 py-10 sm:py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="font-[var(--font-heading)] text-2xl sm:text-3xl font-bold text-white">Tenant Portal</h1>
-          <p className="text-white/55 text-sm">Welcome back, {session?.user?.name?.split(" ")[0] ?? "Tenant"}</p>
+      {/* Header */}
+      <div className="bg-navy-800 px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+        <div className="mx-auto max-w-6xl">
+          <h1 className="text-lg sm:text-xl font-bold text-white">Tenant Portal</h1>
+          <p className="text-white/50 text-xs">Welcome back, {session?.user?.name?.split(" ")[0] ?? "Tenant"}</p>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {kpis.map((w) => (
-            <Card key={w.label} className="elevation-card">
-              <CardContent className="p-4">
-                <div className="flex items-start gap-3">
-                  <div className="h-9 w-9 rounded-lg bg-cream-100 flex items-center justify-center shrink-0">
-                    <w.icon className="h-4 w-4 text-navy-700" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-xs text-muted-foreground">{w.label}</p>
-                    <p className="text-lg font-bold text-navy-800 truncate">{loading ? "…" : w.value}</p>
-                    <p className="text-xs text-muted-foreground">{w.sub}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        {/* KPIs */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border rounded-lg overflow-hidden mb-5">
+          {[
+            { label: "Rent", value: lease ? fmt(lease.rent) : "—", sub: "due 1st of month" },
+            { label: "Lease", value: lease?.status ?? "—", sub: lease ? `ends ${new Date(lease.endDate).toLocaleDateString()}` : "" },
+            { label: "Requests", value: String(openRequests), sub: "open" },
+            { label: "Pending", value: pendingPayment ? fmt(pendingPayment.amount) : "None", sub: pendingPayment ? "due" : "all clear" },
+          ].map((kpi) => (
+            <div key={kpi.label} className="bg-white p-3 sm:p-4">
+              <p className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wide">{kpi.label}</p>
+              <p className="text-sm sm:text-base font-bold text-navy-800 mt-0.5 truncate">{loading ? "…" : kpi.value}</p>
+              <p className="text-[10px] sm:text-xs text-muted-foreground">{kpi.sub}</p>
+            </div>
           ))}
         </div>
 
+        {/* Quick actions */}
+        {lease && (
+          <div className="flex gap-2 mb-5">
+            <Button variant="gold" size="sm" className="text-xs h-8" onClick={() => setShowPay(true)}>
+              <CreditCard className="mr-1.5 h-3 w-3" /> Pay Rent
+            </Button>
+            <Button variant="outline" size="sm" className="text-xs h-8" onClick={() => setShowMaintenance(true)}>
+              <Wrench className="mr-1.5 h-3 w-3" /> Report Issue
+            </Button>
+          </div>
+        )}
+
+        {/* Tabs */}
         <Tabs defaultValue="payments">
-          <TabsList>
-            <TabsTrigger value="payments">Payments</TabsTrigger>
-            <TabsTrigger value="maintenance">Maintenance</TabsTrigger>
-            <TabsTrigger value="lease">Lease</TabsTrigger>
+          <TabsList className="w-full sm:w-auto mb-4">
+            <TabsTrigger value="payments" className="flex-1 sm:flex-none text-xs">Payments</TabsTrigger>
+            <TabsTrigger value="maintenance" className="flex-1 sm:flex-none text-xs">Maintenance</TabsTrigger>
+            <TabsTrigger value="lease" className="flex-1 sm:flex-none text-xs">Lease</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="payments" className="mt-6">
-            <Card className="elevation-card">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle className="text-base">Payment History</CardTitle>
-                {lease && (
-                  <Button variant="gold" onClick={() => setShowPay(true)}>
-                    <CreditCard className="mr-2 h-4 w-4" /> Pay Rent
-                  </Button>
-                )}
-              </CardHeader>
-              <CardContent>
-                {loading ? (
-                  <p className="text-sm text-muted-foreground">Loading…</p>
-                ) : payments.length === 0 ? (
-                  <p className="text-sm text-muted-foreground">No payment history yet.</p>
-                ) : (
-                  <div className="space-y-3">
-                    {payments.map((p) => (
-                      <div key={p.id} className="flex items-center justify-between py-2.5 border-b border-border last:border-0">
-                        <div>
-                          <p className="text-sm font-medium text-navy-800">
-                            {p.paidAt ? new Date(p.paidAt).toLocaleDateString() : new Date(p.dueDate).toLocaleDateString()}
-                          </p>
-                          <p className="text-xs text-muted-foreground">{p.method}</p>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-sm font-semibold text-navy-800">{fmt(p.amount)}</p>
-                          <span className={p.status === "COMPLETED" ? "badge-available text-[10px]" : "badge-occupied text-[10px]"}>
-                            {p.status}
-                          </span>
-                        </div>
+          <TabsContent value="payments">
+            <div className="bg-white rounded-lg border border-border overflow-hidden">
+              {loading ? (
+                <p className="text-xs text-muted-foreground p-4">Loading…</p>
+              ) : payments.length === 0 ? (
+                <p className="text-xs text-muted-foreground p-4">No payment history yet.</p>
+              ) : (
+                <div className="divide-y divide-border">
+                  {payments.map((p) => (
+                    <div key={p.id} className="flex items-center justify-between px-4 py-2.5">
+                      <div>
+                        <p className="text-sm font-medium text-navy-800">
+                          {p.paidAt ? new Date(p.paidAt).toLocaleDateString() : new Date(p.dueDate).toLocaleDateString()}
+                        </p>
+                        <p className="text-xs text-muted-foreground">{p.method}</p>
                       </div>
-                    ))}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+                      <div className="text-right">
+                        <p className="text-sm font-semibold text-navy-800">{fmt(p.amount)}</p>
+                        <span className={`text-[10px] font-medium ${p.status === "COMPLETED" ? "text-emerald-600" : "text-amber-600"}`}>
+                          {p.status}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </TabsContent>
 
-          <TabsContent value="maintenance" className="mt-6">
-            <Card className="elevation-card">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle className="text-base">Maintenance Requests</CardTitle>
-                {lease && (
-                  <Button variant="gold" onClick={() => setShowMaintenance(true)}>
-                    <Wrench className="mr-2 h-4 w-4" /> New Request
-                  </Button>
-                )}
-              </CardHeader>
-              <CardContent>
-                {loading ? (
-                  <p className="text-sm text-muted-foreground">Loading…</p>
-                ) : maintenance.length === 0 ? (
-                  <p className="text-sm text-muted-foreground">No maintenance requests yet.</p>
-                ) : (
-                  <div className="space-y-3">
-                    {maintenance.map((r) => (
-                      <div key={r.id} className="flex items-center justify-between py-2.5 border-b border-border last:border-0">
-                        <div>
-                          <p className="text-sm font-medium text-navy-800">{r.title}</p>
-                          <p className="text-xs text-muted-foreground">{new Date(r.createdAt).toLocaleDateString()} · {r.priority}</p>
-                        </div>
-                        <span className={r.status === "COMPLETED" ? "badge-available" : "badge-occupied"}>{r.status}</span>
+          <TabsContent value="maintenance">
+            <div className="bg-white rounded-lg border border-border overflow-hidden">
+              {loading ? (
+                <p className="text-xs text-muted-foreground p-4">Loading…</p>
+              ) : maintenance.length === 0 ? (
+                <p className="text-xs text-muted-foreground p-4">No maintenance requests yet.</p>
+              ) : (
+                <div className="divide-y divide-border">
+                  {maintenance.map((r) => (
+                    <div key={r.id} className="flex items-center justify-between px-4 py-2.5 gap-3">
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium text-navy-800 truncate">{r.title}</p>
+                        <p className="text-xs text-muted-foreground">{new Date(r.createdAt).toLocaleDateString()} · {r.priority}</p>
                       </div>
-                    ))}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+                      <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded shrink-0 ${r.status === "COMPLETED" ? "bg-emerald-50 text-emerald-700" : r.status === "IN_PROGRESS" ? "bg-blue-50 text-blue-700" : "bg-amber-50 text-amber-700"}`}>
+                        {r.status.replace("_", " ")}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </TabsContent>
 
-          <TabsContent value="lease" className="mt-6">
-            <Card className="elevation-card">
-              <CardHeader><CardTitle className="text-base">Lease Details</CardTitle></CardHeader>
-              <CardContent>
-                {loading ? (
-                  <p className="text-sm text-muted-foreground">Loading…</p>
-                ) : !lease ? (
-                  <p className="text-sm text-muted-foreground">No active lease found.</p>
-                ) : (
-                  <div className="grid sm:grid-cols-2 gap-4 text-sm">
-                    {[
-                      ["Property", lease.unit.property.title],
-                      ["Unit", lease.unit.name],
-                      ["Location", lease.unit.property.location],
-                      ["Lease Start", new Date(lease.startDate).toLocaleDateString()],
-                      ["Lease End", new Date(lease.endDate).toLocaleDateString()],
-                      ["Monthly Rent", fmt(lease.rent)],
-                      ["Deposit Paid", fmt(lease.deposit)],
-                      ["Status", lease.status],
-                    ].map(([label, value]) => (
-                      <div key={label}>
-                        <p className="text-xs text-muted-foreground mb-0.5">{label}</p>
-                        <p className="font-medium text-navy-800">{value}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+          <TabsContent value="lease">
+            <div className="bg-white rounded-lg border border-border overflow-hidden">
+              {loading ? (
+                <p className="text-xs text-muted-foreground p-4">Loading…</p>
+              ) : !lease ? (
+                <p className="text-xs text-muted-foreground p-4">No active lease found.</p>
+              ) : (
+                <div className="grid grid-cols-2 gap-px bg-border">
+                  {[
+                    ["Property", lease.unit.property.title],
+                    ["Unit", lease.unit.name],
+                    ["Location", lease.unit.property.location],
+                    ["Start", new Date(lease.startDate).toLocaleDateString()],
+                    ["End", new Date(lease.endDate).toLocaleDateString()],
+                    ["Rent", fmt(lease.rent)],
+                    ["Deposit", fmt(lease.deposit)],
+                    ["Status", lease.status],
+                  ].map(([label, value]) => (
+                    <div key={label} className="bg-white p-3">
+                      <p className="text-[10px] text-muted-foreground uppercase tracking-wide">{label}</p>
+                      <p className="text-sm font-medium text-navy-800 mt-0.5">{value}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </TabsContent>
         </Tabs>
       </div>
