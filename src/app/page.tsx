@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[calc(100dvh-4rem)] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/images/brian-marete-V3YD8ACd0s0-unsplash.jpg')" }}
