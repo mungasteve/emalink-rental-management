@@ -68,7 +68,7 @@ export default function Home() {
                 </p>
                 <div className="text-center">
                   <span className="inline-block border border-navy-800 text-navy-800 text-xs uppercase tracking-[0.15em] px-6 py-2.5 group-hover:bg-navy-800 group-hover:text-white transition-colors">
-                    Learn More
+                    Explore
                   </span>
                 </div>
               </Link>
