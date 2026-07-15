@@ -35,13 +35,12 @@ export default function Home() {
         <div className="absolute inset-0 bg-navy-900/60" />
         <div className="relative z-10 text-center px-4 py-20">
           <h1 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
-            We manage your rental property.<br className="hidden sm:block" />
-            You keep 90%.
+            We manage your rental property.{" "}<br className="hidden sm:block" />You keep 90%.
           </h1>
           <p className="text-white/70 text-base sm:text-lg max-w-xl mx-auto mb-4">
             10% flat fee. Monthly statements. One named manager you can actually reach.
           </p>
-          <p className="text-white/40 text-sm">
+          <p className="text-white/60 text-sm" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}>
             Professional property management in Nairobi, Kenya.
           </p>
         </div>

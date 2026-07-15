@@ -49,6 +49,7 @@ export function PriceRangeFilter({
               value={localMin}
               onChange={handleMinChange}
               className="w-full h-2 bg-cream-200 rounded-lg appearance-none cursor-pointer accent-gold-500"
+              style={{ touchAction: "pan-y" }}
               aria-label="Minimum price"
             />
           </div>
@@ -61,6 +62,7 @@ export function PriceRangeFilter({
               value={localMax}
               onChange={handleMaxChange}
               className="w-full h-2 bg-cream-200 rounded-lg appearance-none cursor-pointer accent-gold-500"
+              style={{ touchAction: "pan-y" }}
               aria-label="Maximum price"
             />
           </div>

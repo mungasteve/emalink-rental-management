@@ -15,8 +15,8 @@ const imagesByType: Record<string, string[]> = {
   ],
   industrial: [
     "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=450&fit=crop",
-    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=450&fit=crop",
-    "https://images.unsplash.com/photo-1565610222536-ef125c59da2e?w=600&h=450&fit=crop",
+    "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=450&fit=crop",
+    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=450&fit=crop",
   ],
 };
 

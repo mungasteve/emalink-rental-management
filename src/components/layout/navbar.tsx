@@ -79,7 +79,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden border-t border-white/10 bg-navy-800 px-4 py-4">
+        <div className="lg:hidden fixed inset-0 top-16 z-[99] bg-navy-800 px-4 py-4 overflow-y-auto">
           <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
