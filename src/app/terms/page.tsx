@@ -24,7 +24,7 @@ export default function TermsPage() {
           <div>
             <h2 className="font-semibold text-navy-800 text-lg mb-3">Contract Term</h2>
             <p className="text-navy-600 text-sm leading-relaxed">
-              Initial term of 3 to 5 years as agreed between Emalink and the property owner. Automatic renewal unless either party provides 30 days written notice before expiration.
+              Initial term of 12 months. Automatic annual renewal unless either party provides 30 days written notice before expiration.
             </p>
           </div>
 
