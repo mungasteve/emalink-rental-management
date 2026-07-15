@@ -8,45 +8,41 @@ const cards = [
     description: "Rent collection, tenant screening, maintenance & legal compliance.",
     href: "/services",
     image: "/images/maria-ziegler-jJnZg7vBfMs-unsplash.jpg",
-    cta: "Learn More",
   },
   {
     title: "Browse Properties",
     description: "Managed rental properties across Nairobi's best neighborhoods.",
     href: "/properties",
     image: "/images/clay-banks-urH155LONWs-unsplash.jpg",
-    cta: "Explore",
   },
   {
     title: "About Emalink",
     description: "Founded by E.O Masara to bring transparency to property management.",
     href: "/about",
     image: "/images/brian-marete-V3YD8ACd0s0-unsplash.jpg",
-    cta: "Our Story",
   },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* Hero — full viewport, centered like HassConsult */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/images/brian-marete-V3YD8ACd0s0-unsplash.jpg')" }}
         />
         <div className="absolute inset-0 bg-navy-900/60" />
-        <div className="relative z-10 text-center px-4">
-          <h1 className="font-[var(--font-heading)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1] mb-6">
-            Property<br />Management
+        <div className="relative z-10 text-center px-4 py-20">
+          <h1 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
+            We manage your rental property.<br className="hidden sm:block" />
+            You keep 90%.
           </h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-px w-12 bg-gold-400" />
-            <span className="text-gold-400 text-sm sm:text-base uppercase tracking-[0.3em] font-medium">Done Right</span>
-            <div className="h-px w-12 bg-gold-400" />
-          </div>
-          <p className="text-white/50 text-sm sm:text-base max-w-md mx-auto">
-            Professional rental management in Nairobi, Kenya.
+          <p className="text-white/70 text-base sm:text-lg max-w-xl mx-auto mb-4">
+            10% flat fee. Monthly statements. One named manager you can actually reach.
+          </p>
+          <p className="text-white/40 text-sm">
+            Professional property management in Nairobi, Kenya.
           </p>
         </div>
       </section>
@@ -73,7 +69,7 @@ export default function Home() {
                 </p>
                 <div className="text-center">
                   <span className="inline-block border border-navy-800 text-navy-800 text-xs uppercase tracking-[0.15em] px-6 py-2.5 group-hover:bg-navy-800 group-hover:text-white transition-colors">
-                    {card.cta}
+                    Learn More
                   </span>
                 </div>
               </Link>

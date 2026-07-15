@@ -115,11 +115,11 @@ export default function OwnerPortal() {
   return (
     <div className="min-h-screen bg-cream-50">
       {/* Header */}
-      <div className="bg-navy-800 px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+      <div className="bg-cream-50 border-b border-border px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
         <div className="mx-auto max-w-6xl flex items-center justify-between">
           <div>
-            <h1 className="text-lg sm:text-xl font-bold text-white">Owner Portal</h1>
-            <p className="text-white/50 text-xs">Property performance overview</p>
+            <h1 className="text-lg sm:text-xl font-bold text-navy-800">Owner Portal</h1>
+            <p className="text-muted-foreground text-xs">Property performance overview</p>
           </div>
           <LinkButton href="/owner/add-property" variant="gold" size="sm" className="text-xs px-3 py-1.5 h-auto">
             <Plus className="h-3 w-3 mr-1" /> Add Property

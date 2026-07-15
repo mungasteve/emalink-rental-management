@@ -231,10 +231,10 @@ export default function TenantPortal() {
       )}
 
       {/* Header */}
-      <div className="bg-navy-800 px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+      <div className="bg-cream-50 border-b border-border px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
         <div className="mx-auto max-w-6xl">
-          <h1 className="text-lg sm:text-xl font-bold text-white">Tenant Portal</h1>
-          <p className="text-white/50 text-xs">Welcome back, {session?.user?.name?.split(" ")[0] ?? "Tenant"}</p>
+          <h1 className="text-lg sm:text-xl font-bold text-navy-800">Tenant Portal</h1>
+          <p className="text-muted-foreground text-xs">Welcome back, {session?.user?.name?.split(" ")[0] ?? "Tenant"}</p>
         </div>
       </div>
 
