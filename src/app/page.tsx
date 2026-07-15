@@ -23,17 +23,54 @@ const cards = [
   },
 ];
 
+import Image from "next/image";
+import Link from "next/link";
+import { LinkButton } from "@/components/ui/link-button";
+
+const cards = [
+  {
+    title: "Our Services",
+    description: "Rent collection, tenant screening, maintenance & legal compliance.",
+    href: "/services",
+    image: "/images/maria-ziegler-jJnZg7vBfMs-unsplash.jpg",
+  },
+  {
+    title: "Browse Properties",
+    description: "Managed rental properties across Nairobi's best neighborhoods.",
+    href: "/properties",
+    image: "/images/clay-banks-urH155LONWs-unsplash.jpg",
+  },
+  {
+    title: "About Emalink",
+    description: "Founded by E.O Masara to bring transparency to property management.",
+    href: "/about",
+    image: "/images/brian-marete-V3YD8ACd0s0-unsplash.jpg",
+  },
+];
+
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <section className="relative min-h-[calc(100dvh-4rem)] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/brian-marete-V3YD8ACd0s0-unsplash.jpg')" }}
+        <Image
+          src="/images/brian-marete-V3YD8ACd0s0-unsplash.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-navy-900/60" />
         <div className="relative z-10 text-center px-4 py-20">
+          <Image
+            src="/logo-sm.png"
+            alt="Emalink"
+            width={72}
+            height={72}
+            priority
+            className="mx-auto mb-6 rounded-lg"
+          />
           <h1 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
             We manage your rental property.{" "}<br className="hidden sm:block" />You keep 90%.
           </h1>
@@ -57,7 +94,9 @@ export default function Home() {
                     src={card.image}
                     alt={card.title}
                     fill
+                    priority
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <h3 className="font-[var(--font-heading)] text-xl sm:text-2xl font-bold text-navy-800 uppercase tracking-wide text-center mb-2">

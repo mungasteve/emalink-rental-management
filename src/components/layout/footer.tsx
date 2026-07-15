@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Logo } from "@/components/ui/logo";
+import Image from "next/image";
 
 const services = [
   { href: "/services", label: "Tenant Screening" },
@@ -29,7 +29,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 sm:col-span-4 lg:col-span-1">
             <Link href="/" className="inline-block mb-3">
-              <Logo className="h-9 w-auto" light />
+              <Image src="/logo-sm.png" alt="Emalink" width={36} height={36} className="rounded" />
             </Link>
             <p className="text-xs text-white/50 leading-relaxed mb-2">
               Property management for landlords in Nairobi.
