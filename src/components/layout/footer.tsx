@@ -28,8 +28,12 @@ export function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-4 lg:col-span-1">
-            <Link href="/" className="inline-block mb-3">
-              <Image src="/logo-sm.png" alt="Emalink" width={36} height={36} className="rounded" />
+            <Link href="/" className="flex items-center gap-2.5 mb-3">
+              <Image src="/icon-nav.png" alt="" width={36} height={38} className="h-9 w-auto" />
+              <div className="leading-none">
+                <span className="block text-white text-[13px] font-bold tracking-[0.2em]">EMALINK</span>
+                <span className="block text-white/50 text-[7px] tracking-[0.18em] mt-0.5">PROPERTY MANAGEMENT</span>
+              </div>
             </Link>
             <p className="text-xs text-white/50 leading-relaxed mb-2">
               Property management for landlords in Nairobi.

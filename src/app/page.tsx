@@ -38,14 +38,6 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-navy-900/60" />
         <div className="relative z-10 text-center px-4 py-20">
-          <Image
-            src="/logo-sm.png"
-            alt="Emalink"
-            width={72}
-            height={72}
-            priority
-            className="mx-auto mb-6 rounded-lg"
-          />
           <h1 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
             We manage your rental property.{" "}<br className="hidden sm:block" />You keep 90%.
           </h1>
