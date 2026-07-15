@@ -23,31 +23,6 @@ const cards = [
   },
 ];
 
-import Image from "next/image";
-import Link from "next/link";
-import { LinkButton } from "@/components/ui/link-button";
-
-const cards = [
-  {
-    title: "Our Services",
-    description: "Rent collection, tenant screening, maintenance & legal compliance.",
-    href: "/services",
-    image: "/images/maria-ziegler-jJnZg7vBfMs-unsplash.jpg",
-  },
-  {
-    title: "Browse Properties",
-    description: "Managed rental properties across Nairobi's best neighborhoods.",
-    href: "/properties",
-    image: "/images/clay-banks-urH155LONWs-unsplash.jpg",
-  },
-  {
-    title: "About Emalink",
-    description: "Founded by S.M. Maranga to bring transparency to property management.",
-    href: "/about",
-    image: "/images/brian-marete-V3YD8ACd0s0-unsplash.jpg",
-  },
-];
-
 export default function Home() {
   return (
     <>
