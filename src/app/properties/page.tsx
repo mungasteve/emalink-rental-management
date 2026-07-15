@@ -101,7 +101,7 @@ function PropertiesContent() {
                 <Link key={property.id} href={`/properties/${property.id}`} className="block group">
                   <article className="relative overflow-hidden rounded-xl border border-border/60 bg-white transition-all duration-300 hover:shadow-[0_16px_40px_-12px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:border-gold-500/30">
                     <div className="relative overflow-hidden">
-                      <PropertyImage index={i} title={property.title} />
+                      <PropertyImage index={i} title={property.title} type={property.type} />
                       <span className={`absolute top-3 right-3 z-10 ${property.status === "Available" ? "badge-available" : "badge-occupied"}`}>
                         {property.status}
                       </span>
@@ -215,7 +215,7 @@ function PropertiesContent() {
                 <Link key={property.id} href={`/properties/${property.id}`} className="block group">
                   <article className="relative overflow-hidden rounded-xl border border-border/60 bg-white transition-all duration-300 hover:shadow-[0_16px_40px_-12px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:border-gold-500/30">
                     <div className="relative overflow-hidden">
-                      <PropertyImage index={i} title={property.title} />
+                      <PropertyImage index={i} title={property.title} type={property.type} />
                       <span className={`absolute top-3 right-3 z-10 ${property.status === "Available" ? "badge-available" : "badge-occupied"}`}>
                         {property.status}
                       </span>

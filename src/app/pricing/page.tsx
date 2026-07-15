@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Are there setup or exit fees?",
-    a: "No setup fee. No lock-in contract. If you decide to leave, we hand over all records cleanly.",
+    a: "No setup fee. 12-month initial term, renewing annually — but you can cancel with 30 days notice, no penalty, at any time.",
   },
   {
     q: "What payment methods do you accept for the management fee?",
@@ -53,7 +53,7 @@ export default function PricingPage() {
               One fee. Everything included.
             </h1>
             <p className="text-white/70 text-lg max-w-xl mx-auto">
-              10% of gross receipts collected. No hidden charges, no setup fee, no lock-in.
+              10% of gross receipts collected. No hidden charges, no setup fee, cancel anytime with 30 days notice.
             </p>
           </motion.div>
         </div>
