@@ -42,7 +42,7 @@ export default function Home() {
             We manage your rental property.{" "}<br className="hidden sm:block" />You keep 90%.
           </h1>
           <p className="text-white/70 text-base sm:text-lg max-w-xl mx-auto mb-4">
-            10% flat fee. Monthly statements. One named manager you can actually reach.
+            Rent collected. Tenants screened. Maintenance handled. One monthly statement.
           </p>
           <p className="text-white/60 text-sm" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}>
             Professional property management in Nairobi, Kenya.
