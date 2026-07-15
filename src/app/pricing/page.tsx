@@ -124,21 +124,15 @@ export default function PricingPage() {
       {/* CTA */}
       <section className="section-padding bg-navy-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-white mb-4">
-              Interested in working with us?
-            </h2>
-            <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">
-              We are onboarding our first landlords now. Reach out and we will walk you through how it works.
-            </p>
-            <LinkButton href="/contact" variant="gold" size="lg" className="px-8">
-              Contact Us
-            </LinkButton>
-          </motion.div>
+          <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-white mb-4">
+            Interested in working with us?
+          </h2>
+          <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">
+            We are onboarding our first landlords now. Reach out and we will walk you through how it works.
+          </p>
+          <LinkButton href="/contact" variant="gold" size="lg" className="px-8">
+            Contact Us
+          </LinkButton>
         </div>
       </section>
     </div>
