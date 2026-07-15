@@ -29,11 +29,11 @@ export function Navbar() {
     <header className="sticky top-0 z-[100] w-full bg-navy-800">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <Image src="/icon-nav.png" alt="" width={36} height={38} className="h-9 w-auto" />
-          <div className="hidden sm:block leading-none">
-            <span className="block text-white text-[13px] font-bold tracking-[0.2em]">EMALINK</span>
-            <span className="block text-white/50 text-[7px] tracking-[0.18em] mt-0.5">PROPERTY MANAGEMENT</span>
+        <Link href="/" className="flex items-center gap-2 shrink-0">
+          <Image src="/icon-nav.png" alt="" width={36} height={38} className="h-7 w-auto sm:h-9" />
+          <div className="leading-none">
+            <span className="block text-white text-[11px] sm:text-[13px] font-bold tracking-[0.2em]">EMALINK</span>
+            <span className="block text-white/50 text-[6px] sm:text-[7px] tracking-[0.18em] mt-0.5">PROPERTY MANAGEMENT</span>
           </div>
         </Link>
 
