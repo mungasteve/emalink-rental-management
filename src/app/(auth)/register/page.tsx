@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Logo } from "@/components/ui/logo";
 import { Eye, EyeOff } from "lucide-react";
 
 export default function RegisterPage() {
@@ -52,8 +52,8 @@ export default function RegisterPage() {
         <div className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full bg-gold-500/[0.05] blur-[80px]" />
         <div className="absolute bottom-0 -left-20 w-[300px] h-[300px] rounded-full bg-gold-500/[0.04] blur-[60px]" />
 
-        <Link href="/" className="flex items-center gap-2.5 relative z-10">
-          <Image src="/logo.png" alt="Emalink" width={150} height={150} className="h-24 w-auto" />
+        <Link href="/" className="relative z-10">
+          <Logo className="h-12 w-auto" light />
         </Link>
 
         <motion.div
@@ -78,8 +78,8 @@ export default function RegisterPage() {
 
       {/* Right — form panel */}
       <div className="flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-16 bg-cream-50">
-        <Link href="/" className="flex items-center gap-2 mb-10 lg:hidden">
-          <Image src="/logo.png" alt="Emalink" width={120} height={120} className="h-20 w-auto" />
+        <Link href="/" className="inline-block mb-10 lg:hidden">
+          <Logo className="h-10 w-auto" />
         </Link>
 
         <motion.div

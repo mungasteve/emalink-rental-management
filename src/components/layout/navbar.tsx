@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { Menu, X, LogIn, LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/ui/logo";
 
 const navLinks = [
   { href: "/properties", label: "Properties" },
@@ -29,7 +29,7 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
-          <Image src="/logo.png" alt="Emalink" width={100} height={100} className="h-12 w-auto brightness-200" priority />
+          <Logo className="h-10 w-auto" light />
         </Link>
 
         {/* Desktop Nav */}

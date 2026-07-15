@@ -29,24 +29,25 @@ const cards = [
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-[80vh] flex items-end overflow-hidden">
+      {/* Hero — full viewport, centered like HassConsult */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/images/brian-marete-V3YD8ACd0s0-unsplash.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-navy-900/20" />
-        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-16 sm:pb-24">
-          <h1 className="font-[var(--font-heading)] text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4">
-            Property Management<br />
-            <span className="text-gold-400">Done Right.</span>
+        <div className="absolute inset-0 bg-navy-900/60" />
+        <div className="relative z-10 text-center px-4">
+          <h1 className="font-[var(--font-heading)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1] mb-6">
+            Property<br />Management
           </h1>
-          <p className="text-white/60 text-base sm:text-lg max-w-xl mb-8">
-            Professional rental management in Nairobi. We handle everything so you don&apos;t have to.
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="h-px w-12 bg-gold-400" />
+            <span className="text-gold-400 text-sm sm:text-base uppercase tracking-[0.3em] font-medium">Done Right</span>
+            <div className="h-px w-12 bg-gold-400" />
+          </div>
+          <p className="text-white/50 text-sm sm:text-base max-w-md mx-auto">
+            Professional rental management in Nairobi, Kenya.
           </p>
-          <LinkButton href="/contact" variant="gold" size="lg" className="px-8">
-            List Your Property
-          </LinkButton>
         </div>
       </section>
 
