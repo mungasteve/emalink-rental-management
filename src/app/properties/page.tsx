@@ -133,7 +133,7 @@ function PropertiesContent() {
       )}
 
       {/* Filters */}
-      <div className="bg-white border-b border-border sticky top-16 z-40">
+      <div className="bg-white border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
           <div className="space-y-4">
             {/* Search */}
