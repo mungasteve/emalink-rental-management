@@ -94,7 +94,7 @@ export function Hero() {
 
           {/* Founder line — no unverified claims */}
           <motion.p variants={itemVariants} className="text-xs text-white/40 mt-8">
-            Founded by E.O Masara • Nairobi-based • Built for Kenyan landlords
+            Founded by S.M. Maranga • Nairobi-based • Built for Kenyan landlords
           </motion.p>
         </motion.div>
       </div>

@@ -8,7 +8,7 @@ const trustSignals = [
   {
     icon: ShieldCheck,
     title: "Nairobi-Based Team",
-    desc: "Founded by E.O Masara. We manage properties ourselves, so we know what landlords actually need.",
+    desc: "Founded by S.M. Maranga. We manage properties ourselves, so we know what landlords actually need.",
   },
   {
     icon: Zap,

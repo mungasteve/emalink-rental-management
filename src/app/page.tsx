@@ -17,7 +17,7 @@ const cards = [
   },
   {
     title: "About Emalink",
-    description: "Founded by E.O Masara to bring transparency to property management.",
+    description: "Founded by S.M. Maranga to bring transparency to property management.",
     href: "/about",
     image: "/images/brian-marete-V3YD8ACd0s0-unsplash.jpg",
   },
@@ -42,7 +42,7 @@ const cards = [
   },
   {
     title: "About Emalink",
-    description: "Founded by E.O Masara to bring transparency to property management.",
+    description: "Founded by S.M. Maranga to bring transparency to property management.",
     href: "/about",
     image: "/images/brian-marete-V3YD8ACd0s0-unsplash.jpg",
   },

@@ -37,13 +37,13 @@ export default function AboutPage() {
             viewport={{ once: true }}
           >
             <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-navy-800 mb-6">
-              Founded by E.O Masara
+              Founded by S.M. Maranga
             </h2>
 
             <div className="grid md:grid-cols-[1fr_280px] gap-8 items-start">
               <div className="text-navy-600 text-[15px] leading-[1.8] space-y-4">
                 <p>
-                  E.O Masara founded Emalink after managing rental properties in Nairobi and seeing firsthand where the process breaks down for landlords — chasing rent, fielding midnight calls, dealing with contractors who disappear.
+                  S.M. Maranga founded Emalink after managing rental properties in Nairobi and seeing firsthand where the process breaks down for landlords — chasing rent, fielding midnight calls, dealing with contractors who disappear.
                 </p>
                 <p>
                   Working directly with landlords, tenants, and maintenance teams gave him a clear view of what a better system would look like: a flat 10% fee, monthly statements showing every shilling, and a named manager you can actually reach.
