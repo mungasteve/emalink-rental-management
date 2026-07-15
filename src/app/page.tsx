@@ -83,7 +83,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 items-center">
             <div>
-              <p className="text-[11px] font-medium text-navy-500 uppercase tracking-[0.2em] mb-3">
+              <p className="text-[11px] font-medium text-gold-500 uppercase tracking-[0.2em] mb-3">
                 Why Emalink
               </p>
               <h2 className="font-[var(--font-heading)] text-3xl sm:text-4xl font-bold text-navy-800 leading-tight mb-6">
@@ -109,7 +109,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-24 bg-cream-50 border-t border-border">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-[var(--font-heading)] text-2xl sm:text-3xl font-bold text-navy-800 mb-4">
             List your property with Emalink
